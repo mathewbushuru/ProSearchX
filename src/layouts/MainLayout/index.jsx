@@ -1,5 +1,5 @@
 import { MobileNavbar, DesktopNavbar } from "components/Navbar";
-import { MobileFooter } from "components/Footer";
+import { MobileFooter, DesktopFooter } from "components/Footer";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
 
@@ -12,7 +12,7 @@ export const MainLayout = ({ children }) => {
     <div className={styles.mainLayout}>
       {width < 501 ? <MobileNavbar /> : <DesktopNavbar />}
       <div className={styles.content}>{children}</div>
-      <MobileFooter/>
+      {width < 501 ? <MobileFooter /> : <DesktopFooter />}
     </div>
   );
 };

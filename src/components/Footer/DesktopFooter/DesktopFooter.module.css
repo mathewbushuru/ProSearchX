@@ -1,0 +1,31 @@
+.desktopFooter {
+  padding-bottom: 10px;
+  background: var(--googleWhite2);
+  font-size: 14px;
+  line-height: 35px;
+}
+.footerCountry {
+  padding: 15px 30px;
+  padding-left: 27px;
+  font-size: 16px;
+  line-height: 35px;
+  text-align: left;
+  color: var(--googleGrey);
+  border-bottom: 1px solid var(--googleGrey2);
+}
+.footerRow{
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.leftFooterRow,
+.rightFooterRow {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.leftFooterRow span,
+.rightFooterRow span {
+  cursor: pointer;
+  color: var(--googleGrey);
+}
