@@ -1,1 +1,14 @@
-
+:root {
+  --googleGrey: #70757a;
+  --googleBlue: #4285f4;
+  --googleBlue2: #1a73e8;
+  --googleWhite: #fff;
+}
+*{
+    box-sizing: border-box;
+}
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}

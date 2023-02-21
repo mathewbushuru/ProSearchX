@@ -2,6 +2,8 @@
 
 A Google(UI) Clone
 
+## Notes
+
 ## Table Of Contents:
 
 - 💻 Application Overview
@@ -147,7 +149,7 @@ src/features/example-feature
 
 We then import stuff from other features using:
 
-`import {ExampleComponent} from "@/features/example-feature"`
+`import {ExampleComponent} from "features/example-feature"`
 
 Example features for a standard app include `/auth`, `/users`, etc.
 

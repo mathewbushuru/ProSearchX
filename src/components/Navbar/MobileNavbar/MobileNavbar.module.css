@@ -1,0 +1,41 @@
+.mobileNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.navLeft,
+.navRight {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+.navItem {
+  margin: 8px;
+}
+span.navItem {
+  color: var(--googleGrey);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 48px;
+  padding: 0 8px;
+  text-transform: uppercase;
+}
+span.navItemActive {
+  color: var(--googleBlue);
+  border-bottom: 2px solid var(--googleBlue);
+}
+.navIcon {
+  color: var(--googleGrey);
+  font-size: 24px;
+}
+.primaryButton {
+  cursor: pointer;
+  background: var(--googleBlue2);
+  color: var(--googleWhite);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 9px 15px;
+  letter-spacing: 0.25px;
+  min-width: 80px;
+}
