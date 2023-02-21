@@ -1,7 +1,8 @@
 import { MainLayout } from "layouts";
+import { SearchQueryPage } from "features/search/pages/search-query";
 
 function App() {
-  return <MainLayout>Googly!</MainLayout>;
+  return <SearchQueryPage />;
 }
 
 export default App;

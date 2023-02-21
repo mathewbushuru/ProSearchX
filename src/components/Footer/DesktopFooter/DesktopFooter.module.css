@@ -13,7 +13,7 @@
   color: var(--googleGrey);
   border-bottom: 1px solid var(--googleGrey2);
 }
-.footerRow{
+.footerRow {
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
@@ -28,4 +28,8 @@
 .rightFooterRow span {
   cursor: pointer;
   color: var(--googleGrey);
+}
+.leftFooterRow span:hover,
+.rightFooterRow span:hover {
+  text-decoration: underline;
 }
