@@ -1,6 +1,8 @@
 import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
 import { IoApps as AppDrawer } from "react-icons/io5";
 
+import { PrimaryButton } from "components/UI";
+
 import styles from "./MobileNavbar.module.css";
 
 export const MobileNavbar = () => {
@@ -13,9 +15,7 @@ export const MobileNavbar = () => {
       </div>
       <div className={styles.navRight}>
         <AppDrawer className={`${styles.navItem} ${styles.navIcon}`} />
-        <button className={`${styles.navItem} ${styles.primaryButton}`}>
-          Sign in
-        </button>
+        <PrimaryButton className={styles.navItem}>Sign in</PrimaryButton>
       </div>
     </header>
   );

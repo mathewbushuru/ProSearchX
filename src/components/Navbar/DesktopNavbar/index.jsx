@@ -1,5 +1,7 @@
 import { IoApps as AppDrawer } from "react-icons/io5";
 
+import { PrimaryButton } from "components/UI";
+
 import styles from "./DesktopNavbar.module.css";
 
 export const DesktopNavbar = () => {
@@ -10,12 +12,10 @@ export const DesktopNavbar = () => {
         <span className={`${styles.navItem}`}>Store</span>
       </div>
       <div className={styles.navRight}>
-      <span className={`${styles.navItem}`}>Gmail</span>
+        <span className={`${styles.navItem}`}>Gmail</span>
         <span className={`${styles.navItem}`}>Images</span>
         <AppDrawer className={`${styles.navItem} ${styles.navIcon}`} />
-        <button className={`${styles.navItem} ${styles.primaryButton}`}>
-          Sign in
-        </button>
+        <PrimaryButton className={styles.navItem}>Sign in</PrimaryButton>
       </div>
     </header>
   );

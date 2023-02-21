@@ -1,0 +1,13 @@
+.primaryButton {
+    cursor: pointer;
+    background: var(--googleBlue2);
+    color: var(--googleWhite);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 9px 15px;
+    letter-spacing: 0.25px;
+    min-width: 80px;
+  }
+  .primaryButton:hover {
+    background: var(--googleBlue);
+  }
