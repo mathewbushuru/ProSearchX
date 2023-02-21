@@ -4,11 +4,13 @@
   --googleBlue: #4285f4;
   --googleBlue2: #1a73e8;
   --googleBlack: #202124;
+  --googleBlack2: #3c4043;
   --googleWhite: #fff;
   --googleWhite2: #f2f2f2;
+  --googleWhite3: #f8f9fa;
 }
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 html,
 body {

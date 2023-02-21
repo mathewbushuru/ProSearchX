@@ -37,11 +37,47 @@
   top: 35%;
   left: 30px;
 }
-.otherLanguages{
-    text-align: center;
-    font-size: 16px;
+.searchButtons {
+  display: none;
 }
-.otherLanguages span{
-    color: var(--googleBlue);
-    cursor: pointer;
+.otherLanguages {
+  text-align: center;
+  font-size: 16px;
+}
+.otherLanguages span {
+  color: var(--googleBlue);
+  cursor: pointer;
+}
+@media (min-width: 501px) {
+  .logoWrapper {
+    margin-bottom: 0;
+  }
+  .logoImage {
+    width: 272px;
+  }
+  .searchForm {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .searchButtons {
+    margin-top: 11px;
+    display: block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .transparentButton {
+    background-color: var(--googleWhite3);
+    color: var(--googleBlack2);
+    font-size: 14px;
+  }
+  .transparentButton:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: var(--googleWhite3);
+  }
+  .otherLanguages {
+    font-size: 14px;
+    margin-top: 24px;
+  }
 }

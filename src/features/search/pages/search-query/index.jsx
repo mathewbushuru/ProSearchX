@@ -1,6 +1,7 @@
 import { CgSearch as SearchIcon } from "react-icons/cg";
 
 import { MainLayout } from "layouts";
+import { PrimaryButton } from "components/UI";
 
 import styles from "./SearchQueryPage.module.css";
 
@@ -22,6 +23,14 @@ export const SearchQueryPage = () => {
             <input type="search" name="search_query" id="search_query" />
             <SearchIcon className={styles.searchIcon} />
           </form>
+          <div className={styles.searchButtons}>
+            <PrimaryButton className={styles.transparentButton}>
+              Google Search
+            </PrimaryButton>
+            <PrimaryButton className={styles.transparentButton}>
+              I'm Feeling Lucky
+            </PrimaryButton>
+          </div>
           <div className={styles.otherLanguages}>
             Google offered in: <span> Français</span>
           </div>
