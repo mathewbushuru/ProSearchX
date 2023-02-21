@@ -1,4 +1,6 @@
 import { CgSearch as SearchIcon } from "react-icons/cg";
+import { BiMicrophone as Microphone } from "react-icons/bi";
+import { BsCamera as Camera } from "react-icons/bs";
 
 import { MainLayout } from "layouts";
 import { PrimaryButton } from "components/UI";
@@ -22,6 +24,8 @@ export const SearchQueryPage = () => {
           <form className={styles.searchForm} action="">
             <input type="search" name="search_query" id="search_query" />
             <SearchIcon className={styles.searchIcon} />
+            <Microphone className={styles.microphoneIcon} />
+            <Camera className={styles.cameraIcon} />
           </form>
           <div className={styles.searchButtons}>
             <PrimaryButton className={styles.transparentButton}>

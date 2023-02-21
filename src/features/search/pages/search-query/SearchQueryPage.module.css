@@ -37,6 +37,10 @@
   top: 35%;
   left: 30px;
 }
+.microphoneIcon,
+.cameraIcon {
+  display: none;
+}
 .searchButtons {
   display: none;
 }
@@ -48,6 +52,7 @@
   color: var(--googleBlue);
   cursor: pointer;
 }
+
 @media (min-width: 501px) {
   .logoWrapper {
     margin-bottom: 0;
@@ -58,6 +63,23 @@
   .searchForm {
     margin: 0 auto;
     width: 50%;
+  }
+  .searchForm input{
+    padding-right: 75px;
+  }
+  .microphoneIcon,
+  .cameraIcon {
+    display: inline-block;
+    color: var(--googleGrey);
+    font-size: 22px;
+    position: absolute;
+    top: 35%;
+  }
+  .microphoneIcon {
+    right: 35px;
+  }
+  .cameraIcon {
+    right: 70px;
   }
   .searchButtons {
     margin-top: 11px;
