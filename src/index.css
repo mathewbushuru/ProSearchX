@@ -1,9 +1,11 @@
 :root {
   --googleGrey: #70757a;
+  --googleGrey2: #dadce0;
   --googleBlue: #4285f4;
   --googleBlue2: #1a73e8;
   --googleBlack: #202124;
   --googleWhite: #fff;
+  --googleWhite2: #f2f2f2;
 }
 *{
     box-sizing: border-box;

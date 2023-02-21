@@ -1,0 +1,28 @@
+.mobileFooter {
+  padding-bottom: 10px;
+  background: var(--googleWhite2);
+  font-size: 14px;
+  line-height: 35px;
+}
+.footerCountry {
+  padding: 6px 0;
+  padding-left: 27px;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: left;
+  color: var(--googleGrey);
+}
+.topFooterRow,
+.bottomFooterRow {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.topFooterRow span,
+.bottomFooterRow span {
+  cursor: pointer;
+  color: var(--googleGrey);
+}
+.topFooterRow {
+  border-top: 1px solid var(--googleGrey2);
+}
