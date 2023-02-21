@@ -1,4 +1,5 @@
-.mobileNavbar {
+.desktopNavbar {
+  padding: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,22 +10,22 @@
   align-items: center;
 }
 .navItem {
-  margin: 8px;
+  margin: 15px;
+  cursor: pointer;
 }
 span.navItem {
-  color: var(--googleGrey);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 48px;
+  color: var(--googleBlack);
+  font-size: 16px;
+  font-weight: 400;
   padding: 0 8px;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  text-decoration: none;
 }
-span.navItemActive {
-  color: var(--googleBlue);
-  border-bottom: 2px solid var(--googleBlue);
+span.navItem:hover {
+  text-decoration: underline;
 }
 .navIcon {
-  color: var(--googleGrey);
+  color: var(--googleBlack);
   font-size: 24px;
 }
 .primaryButton {
@@ -36,4 +37,7 @@ span.navItemActive {
   padding: 9px 15px;
   letter-spacing: 0.25px;
   min-width: 80px;
+}
+.primaryButton:hover {
+  background: var(--googleBlue);
 }
