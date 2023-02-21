@@ -13,7 +13,9 @@ export const MobileNavbar = () => {
       </div>
       <div className={styles.navRight}>
         <AppDrawer className={`${styles.navItem} ${styles.navIcon}`} />
-        <button className={`${styles.navItem} ${styles.primaryButton}`}>Sign in</button>
+        <button className={`${styles.navItem} ${styles.primaryButton}`}>
+          Sign in
+        </button>
       </div>
     </header>
   );

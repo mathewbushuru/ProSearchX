@@ -17,7 +17,7 @@ A Google(UI) Clone
 ## 💻 Application Overview
 
 ...
-[Demo](https://mathewbushuru.me/#portfolio)
+[Demo](https://googly-lovat.vercel.app/)
 
 ### Data model
 
