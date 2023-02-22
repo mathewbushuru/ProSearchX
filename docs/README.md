@@ -102,11 +102,9 @@ src
 |
 +-- lib               # re-exporting different libraries preconfigured for the application
 |
-+-- pages             # screens/web pages in the app
++-- providers         # all of the application providers e.g react-router providers
 |
-+-- providers         # all of the application providers
-|
-+-- routes            # routes configuration
++-- routes/pages      # any global routes configuration or pages
 |
 +-- stores            # global state stores
 |
@@ -131,6 +129,8 @@ src/features/example-feature
 +-- hooks       # hooks scoped to a specific feature
 |
 +-- layout      # Feature specific layouts containing eg nav, footer
+|
++-- pages       # Pages that will be rendered on corresponding routes
 |
 +-- routes      # route components for a specific feature pages
 |
