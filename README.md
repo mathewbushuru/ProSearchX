@@ -8,6 +8,9 @@ The structure of  this project is documented at [docs/README.md](./docs/README.m
 
 This is a fully responsive UI implementation of Google search built with ReactJS and styled with custom CSS.
 
+The app has these features:
+- Global error handling: Any uncaught or unhandled error does not break the app, instead a nice message is shown to the user before they are redirected.
+
 ### Backend 
 
 At the moment, I am using an API directly  from the react web app to return search results.

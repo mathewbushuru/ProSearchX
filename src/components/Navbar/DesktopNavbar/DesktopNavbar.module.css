@@ -9,6 +9,9 @@
   display: flex;
   align-items: center;
 }
+.desktopNavbar a{
+  text-decoration: none;
+}
 .navItem {
   margin: 15px;
   cursor: pointer;

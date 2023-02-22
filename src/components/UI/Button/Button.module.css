@@ -11,3 +11,7 @@
   .primaryButton:hover {
     background: var(--googleBlue);
   }
+  .primaryButton a{
+    text-decoration: none;
+    color: inherit;
+  }

@@ -1,7 +1,7 @@
 // This page is also the global error page
 // After encountering any unhandled errors, automatically redirect here
 
-import { useRouteError } from "react-router-dom";
+import { useRouteError, Form, Link } from "react-router-dom";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
@@ -36,18 +36,18 @@ export const SearchQueryPage = () => {
           />
         </div>
         <div className={styles.main}>
-          <form className={styles.searchForm} action="">
-            <input type="search" name="search_query" id="search_query" />
+          <Form className={styles.searchForm} action="/search" method="get">
+            <input type="search" name="q" id="search_query" />
             <SearchIcon className={styles.searchIcon} />
             <Microphone className={styles.microphoneIcon} />
             <Camera className={styles.cameraIcon} />
-          </form>
+          </Form>
           <div className={styles.searchButtons}>
             <PrimaryButton className={styles.transparentButton}>
-              Google Search
+              <Link to="/search">Google Search</Link>
             </PrimaryButton>
             <PrimaryButton className={styles.transparentButton}>
-              I'm Feeling Lucky
+              <Link to="/doodles">I'm Feeling Lucky</Link>
             </PrimaryButton>
           </div>
           <div className={styles.otherLanguages}>
