@@ -1,3 +1,7 @@
+// This page is also the global error page
+// After encountering any unhandled errors, automatically redirect here
+
+import { useRouteError } from "react-router-dom";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
@@ -14,9 +18,16 @@ import googleLogo from "assets/logo.png";
 
 export const SearchQueryPage = () => {
   const { width } = useWindowDimensions();
+
+  const error = useRouteError();
+  error && console.error(error);
+
   return (
     <MainLayout>
       <div className={styles.searchQueryPage}>
+        {error && (
+          <div>Unexpected error: {error.statusText || error.message}</div>
+        )}
         <div className={styles.logoWrapper}>
           <img
             src={googleLogo}

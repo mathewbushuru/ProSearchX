@@ -6,6 +6,7 @@ const searchRouter = createBrowserRouter([
   {
     path: "/",
     element: <SearchQueryPage />,
+    errorElement: <SearchQueryPage />,
   },
 ]);
 
