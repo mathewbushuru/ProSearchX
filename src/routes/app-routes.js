@@ -1,9 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
-
 import { SearchQueryPage } from "features/search/pages/search-query";
 import { ComingSoon } from "components/UtilComponents";
 
-const searchRouter = createBrowserRouter([
+const appRoutes = [
   {
     path: "/",
     element: <SearchQueryPage />,
@@ -30,13 +28,9 @@ const searchRouter = createBrowserRouter([
     element: <ComingSoon item="Google Images" />,
   },
   {
-    path: "/search",
-    element: <ComingSoon item="Search results" />,
-  },
-  {
     path: "/store",
     element: <ComingSoon item="Store page" />,
   },
-]);
+];
 
-export default searchRouter;
+export default appRoutes;
