@@ -1,0 +1,53 @@
+.mobileTrendingSearches {
+  margin-left: 24px;
+  margin-right: 14px;
+}
+.header {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.header p {
+  margin: 0;
+  padding: 0;
+  color: var(--googleBlack);
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+.moreIcon {
+  font-size: 22px;
+}
+.trendingSearchList {
+  display: flex;
+  flex-direction: column;
+}
+.trendingSearchRow {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--googleGrey2);
+}
+.trendingIcon {
+  font-size: 24px;
+  color: var(--googleBlack2);
+  margin-right: 8px;
+  margin-left: 14px;
+}
+.queryContent {
+  margin: 5px 0 5px 13px;
+}
+.trendingSearchRow p {
+  margin: 0;
+  padding: 0;
+  color: var(--googleBlack);
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.trendingSearchRow p.description {
+  color: var(--googleGrey);
+  font-size: 15px;
+}
