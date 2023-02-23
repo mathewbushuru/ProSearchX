@@ -1,7 +1,8 @@
 // This page is also the global error page
 // After encountering any unhandled errors, automatically redirect here
 
-import { useRouteError, Form, Link } from "react-router-dom";
+import { useRef } from "react";
+import { useRouteError, Form, Link, useSubmit } from "react-router-dom";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
@@ -22,6 +23,9 @@ export const SearchQueryPage = () => {
   const error = useRouteError();
   error && console.error(error);
 
+  const searchFormRef = useRef();
+  const submit = useSubmit();
+
   return (
     <MainLayout>
       <div className={styles.searchQueryPage}>
@@ -36,15 +40,24 @@ export const SearchQueryPage = () => {
           />
         </div>
         <div className={styles.main}>
-          <Form className={styles.searchForm} action="/search" method="get">
+          <Form
+            className={styles.searchForm}
+            action="/search"
+            method="get"
+            ref={searchFormRef}
+          >
             <input type="search" name="q" id="search_query" />
             <SearchIcon className={styles.searchIcon} />
             <Microphone className={styles.microphoneIcon} />
             <Camera className={styles.cameraIcon} />
           </Form>
           <div className={styles.searchButtons}>
-            <PrimaryButton className={styles.transparentButton}>
-              <Link to="/search">Google Search</Link>
+            <PrimaryButton
+              className={styles.transparentButton}
+              onClick={() => submit(searchFormRef.current)}
+            >
+              {/* <Link to={`/search`}>Google Search</Link> */}
+              Google Search
             </PrimaryButton>
             <PrimaryButton className={styles.transparentButton}>
               <Link to="/doodles">I'm Feeling Lucky</Link>
