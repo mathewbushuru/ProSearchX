@@ -1,9 +1,10 @@
 import { ComingSoon } from "components/UtilComponents";
+import { SearchResultsPage } from "../pages";
 
 const searchRoutes = [
   {
     path: "/search",
-    element: <ComingSoon item="Search results" />,
+    element: <SearchResultsPage />,
   },
 ];
 

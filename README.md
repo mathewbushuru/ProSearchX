@@ -10,10 +10,11 @@ This is a fully responsive UI implementation of Google search built with ReactJS
 
 The app has these features:
 - Global error handling: Any uncaught or unhandled error does not break the app, instead a nice message is shown to the user before they are redirected.
+- [Todo] Ability to search videos and play them using `react-player`
 
 ### Backend 
 
-At the moment, I am using an API directly  from the react web app to return search results.
+At the moment, I plan to use an API that scrapes Google's website to provide search results in this app.
 
 ### Deployment
 

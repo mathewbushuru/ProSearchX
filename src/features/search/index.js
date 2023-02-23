@@ -1,1 +1,1 @@
-export * from "components/features/search/search-query"
+export * from "features/search/components";

@@ -10,7 +10,6 @@
 
 ## 💻 Application Overview
 
-...
 [Demo](https://googly-lovat.vercel.app/)
 
 ### Data model

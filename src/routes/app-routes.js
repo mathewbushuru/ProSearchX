@@ -1,5 +1,7 @@
-import { SearchQueryPage } from "features/search/pages/search-query";
+import { SearchQueryPage } from "features/search/pages";
 import { ComingSoon } from "components/UtilComponents";
+
+ 
 
 const appRoutes = [
   {
