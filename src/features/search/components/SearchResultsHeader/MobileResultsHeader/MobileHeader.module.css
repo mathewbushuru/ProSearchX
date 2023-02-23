@@ -1,0 +1,39 @@
+.mobileNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navLeft,
+.navRight {
+  display: flex;
+  align-items: center;
+}
+.logoImage{
+  width: 92px;
+}
+.mobileNavbar a{
+  text-decoration: none;
+}
+.navItem {
+  margin: 12px;
+}
+span.navItem {
+  color: var(--googleGrey);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 48px;
+  padding: 0 8px;
+  text-transform: uppercase;
+}
+span.navItemActive {
+  color: var(--googleBlue);
+  border-bottom: 2px solid var(--googleBlue);
+}
+.navIcon {
+  color: var(--googleGrey);
+  font-size: 24px;
+}
+.personIcon{
+  color: var(--googleBlue2);
+  font-size: 28px;
+}

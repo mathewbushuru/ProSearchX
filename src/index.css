@@ -17,3 +17,7 @@ body {
   font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}

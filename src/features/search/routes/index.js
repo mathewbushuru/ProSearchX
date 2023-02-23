@@ -1,4 +1,3 @@
-import { ComingSoon } from "components/UtilComponents";
 import { SearchResultsPage,SearchQueryPage } from "../pages";
 
 const searchRoutes = [

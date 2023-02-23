@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-import { MainLayout } from "layouts";
+import { SearchResultsLayout } from "features/search/layouts";
 
 import { searchApi } from "features/search/api/search-api";
 
@@ -12,18 +12,18 @@ export const SearchResultsPage = () => {
 
   if (searchQuery.length === 0) {
     return (
-      <MainLayout>
+      <SearchResultsLayout>
         Sorry, could not complete your request because of an empty search
         string. <br />
         <Link to="/">Back to query page</Link>
-      </MainLayout>
+      </SearchResultsLayout>
     );
   }
 
   const searchResults = searchApi(searchQuery);
 
   return (
-    <MainLayout>
+    <SearchResultsLayout>
       <p>
         {/* <strong>Search query:</strong> {searchQuery} */}
         <strong>Search query:</strong> UBC <br />
@@ -57,6 +57,6 @@ export const SearchResultsPage = () => {
         </div>
       ))}
       <Link to="/">Back to query page</Link>
-    </MainLayout>
+    </SearchResultsLayout>
   );
 };
