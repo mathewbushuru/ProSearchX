@@ -49,7 +49,7 @@ export const SearchResultsPage = () => {
           {page.items.map((result, index) => (
             <div key={index}>
               <h3>{result.title}</h3>
-              <a href="{result.link}">{result.displayLink}</a>
+              <a href={result.link}>{result.displayLink}</a>
               <p>{result.snippet}</p>
               <hr />
             </div>
