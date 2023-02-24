@@ -50,10 +50,6 @@ export const SearchQueryPage = () => {
               type="search"
               name="q"
               id="search_query"
-              onFocus={() => {
-                // prevent ios keyboard from shifting webview up
-                window.scrollTo(0, 0);
-              }}
             />
             <SearchIcon className={styles.searchIcon} />
             <Microphone className={styles.microphoneIcon} />

@@ -14,10 +14,6 @@ export const SearchForm = () => {
         name="q"
         id="search_query"
         defaultValue={searchQuery}
-        onFocus={() => {
-          // prevent ios keyboard from shifting webview up
-          window.scrollTo(0, 0);
-        }}
       />
       <SearchIcon className={styles.searchIcon} />
     </Form>

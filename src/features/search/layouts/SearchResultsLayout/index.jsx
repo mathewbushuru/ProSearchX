@@ -11,7 +11,9 @@ export const SearchResultsLayout = ({ children }) => {
 
   return (
     <div className={styles.mainLayout}>
-      {width < 501 ? <MobileSearchResultsHeader /> : <DesktopNavbar />}
+      <div className={styles.header}>
+        {width < 501 ? <MobileSearchResultsHeader /> : <DesktopNavbar />}
+      </div>
       <div className={styles.content}>{children}</div>
       {width < 501 ? <MobileFooter /> : <DesktopFooter />}
     </div>
