@@ -1,0 +1,22 @@
+.searchForm {
+  padding: 12px 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.searchForm input {
+  color: var(--googleBlack);
+  padding: 10px 12px;
+  padding-left: 60px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: 0 2px 5px 0 rgba(60, 64, 67, 0.16);
+}
+.searchIcon {
+  color: var(--googleGrey);
+  font-size: 22px;
+  position: absolute;
+  top: 35%;
+  left: 30px;
+}

@@ -56,7 +56,6 @@ export const SearchQueryPage = () => {
               className={styles.transparentButton}
               onClick={() => submit(searchFormRef.current)}
             >
-              {/* <Link to={`/search`}>Google Search</Link> */}
               Google Search
             </PrimaryButton>
             <PrimaryButton className={styles.transparentButton}>
