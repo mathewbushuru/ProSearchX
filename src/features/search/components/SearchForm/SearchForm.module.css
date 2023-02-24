@@ -15,6 +15,9 @@
   outline: none;
   box-shadow: 0 2px 5px 0 rgba(60, 64, 67, 0.16);
 }
+.searchForm input:hover{
+  box-shadow: 0 2px 5px 0 rgba(60, 64, 67, 0.32);
+}
 .mobileSearchInput {
   padding-left: 60px;
   padding-right: 20px;
