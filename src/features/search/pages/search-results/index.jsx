@@ -33,20 +33,25 @@ export const SearchResultsPage = () => {
       <div className={styles.searchResultsContainer}>
         {searchResults.map((page, pageNumber) => (
           <div key={pageNumber}>
-            {!SEARCH_ON && (
+            <span className={`${styles.resultsNumber}`}>
+              About {page.estimatedResultCount.toLocaleString()} results
+            </span>
+
+            {!SEARCH_ON && searchQuery !== "ubc" && (
               <div
                 className={`code ${styles.searchResult} ${styles.codeDisclaimer}`}
               >
                 <p>
-                  [To protect my scraping rate limit, I have turned search off
+                  [To prevent hitting my scraping rate limit, I have turned search off
                   and I'm using a cached previous query('ubc'). If you are
                   looking at the code, you can turn it back on at
-                  /src/config/index.js by changing SEARCH_ON from false to true]
+                  /src/config/index.js by changing SEARCH_ON from false to true,
+                  or try searching 'ubc']
                 </p>
               </div>
             )}
+
             {/* <h1 className="code">Page {pageNumber + 1}</h1> */}
-            {/* <p>About {page.estimatedResultCount} results</p> */}
             {page.items.map((result, index) => (
               <div key={index} className={styles.searchResult}>
                 <div className={styles.searchResultLinks}>
@@ -62,7 +67,9 @@ export const SearchResultsPage = () => {
                 </div>
 
                 <div className={styles.searchResultDetails}>
-                  <h3>{result.title}</h3>
+                  <h3>
+                    <a href={result.link}>{result.title}</a>
+                  </h3>
                   <p>{result.snippet}</p>
                 </div>
               </div>
