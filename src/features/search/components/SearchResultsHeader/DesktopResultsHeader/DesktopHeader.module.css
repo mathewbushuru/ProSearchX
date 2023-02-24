@@ -1,0 +1,45 @@
+.desktopNavbar {
+  padding: 6px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+}
+.navLeft,
+.navRight {
+  display: flex;
+  align-items: center;
+}
+.navLeft {
+  flex: 1;
+  gap: 30px;
+}
+.logoImage {
+  width: 92px;
+}
+.searchForm {
+  width: min(100%, 538px);
+}
+.navItem {
+  margin: 15px 10px;
+  cursor: pointer;
+}
+span.navItem {
+  color: var(--googleBlack);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 8px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+span.navItem:hover {
+  text-decoration: underline;
+}
+.navIcon {
+  color: var(--googleGrey4);
+  font-size: 24px;
+}
+@media screen and (max-width: 650px) and (min-width: 501px) {
+  .navIcon{
+    display: none;
+  }
+}

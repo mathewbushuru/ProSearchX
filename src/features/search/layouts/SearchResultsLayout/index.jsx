@@ -1,5 +1,7 @@
-import { DesktopNavbar } from "components/Navbar";
-import { MobileSearchResultsHeader } from "features/search/components";
+import {
+  MobileSearchResultsHeader,
+  DesktopSearchResultsHeader,
+} from "features/search/components";
 import { MobileFooter, DesktopFooter } from "components/Footer";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
@@ -12,7 +14,11 @@ export const SearchResultsLayout = ({ children }) => {
   return (
     <div className={styles.searchResultsLayout}>
       <div className={styles.header}>
-        {width < 501 ? <MobileSearchResultsHeader /> : <DesktopNavbar />}
+        {width < 501 ? (
+          <MobileSearchResultsHeader />
+        ) : (
+          <DesktopSearchResultsHeader />
+        )}
       </div>
       <div className={styles.content}>{children}</div>
       {width < 501 ? <MobileFooter /> : <DesktopFooter />}
