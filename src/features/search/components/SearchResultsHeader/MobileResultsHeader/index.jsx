@@ -11,6 +11,18 @@ import googleLogo from "assets/logo.png";
 export const MobileSearchResultsHeader = () => {
   const navigate = useNavigate();
 
+  const searchTypeOptions = [
+    "All",
+    "News",
+    "Maps",
+    "Images",
+    "Videos",
+    "Shopping",
+    "Books",
+    "Flights",
+    "Finance",
+  ];
+
   return (
     <header className={styles.mobileHeader}>
       <div className={styles.mobileNavbar}>
@@ -31,7 +43,17 @@ export const MobileSearchResultsHeader = () => {
           </Link>
         </div>
       </div>
-      <SearchForm/>
+      <SearchForm />
+      <div className={styles.searchTypeContainer}>
+        {searchTypeOptions.map((searchType, index) => (
+          <div key={index} className={styles.searchType}>
+            {searchType}
+          </div>
+        ))}
+        <div className={`${styles.searchType} ${styles.searchTools}`}>
+          Search tools
+        </div>
+      </div>
     </header>
   );
 };

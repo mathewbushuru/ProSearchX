@@ -10,7 +10,7 @@ export const SearchResultsLayout = ({ children }) => {
   const { width } = useWindowDimensions();
 
   return (
-    <div className={styles.mainLayout}>
+    <div className={styles.searchResultsLayout}>
       <div className={styles.header}>
         {width < 501 ? <MobileSearchResultsHeader /> : <DesktopNavbar />}
       </div>

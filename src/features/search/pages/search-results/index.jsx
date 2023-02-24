@@ -27,8 +27,7 @@ export const SearchResultsPage = () => {
       <p>
         <i style={{ color: "red" }}>
           ( To protect my scraping rate limit, I have turned search off and i'm
-          using a cached previous query('ubc'). I promise I'll search{" "}
-          <strong>{searchQuery}</strong> for you later. If you are looking at
+          using a cached previous query('ubc'). If you are looking at
           the code, you can turn it back on at /src/config/index.js by changing
           SEARCH_ON from false to true)
         </i>
