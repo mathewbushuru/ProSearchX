@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
 import { TbTrendingUp as TrendingIcon } from "react-icons/tb";
 
@@ -41,8 +42,10 @@ function TrendingSearchRow({ title, description = null }) {
     <div className={styles.trendingSearchRow}>
       <TrendingIcon className={styles.trendingIcon} />
       <div className={styles.queryContent}>
-        <p>{title}</p>
-        {description && <p className={styles.description}>{description}</p>}
+        <Link to={`/search?q=${title}`}>
+          <p>{title}</p>
+          {description && <p className={styles.description}>{description}</p>}
+        </Link>
       </div>
     </div>
   );
