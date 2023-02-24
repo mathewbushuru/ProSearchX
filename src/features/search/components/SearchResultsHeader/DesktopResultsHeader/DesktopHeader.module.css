@@ -87,3 +87,12 @@ span.navItem:hover {
     display: none;
   }
 }
+
+@media screen and (min-width: 1501px) {
+  .searchForm {
+    width: max(970px,50%);
+  }
+  .searchTypeContainer {
+    width: max(1125px,50%);
+  }
+}

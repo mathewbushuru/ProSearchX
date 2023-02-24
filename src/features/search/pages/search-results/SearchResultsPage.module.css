@@ -103,3 +103,9 @@
     padding-left: 16px;
   }
 }
+
+@media screen and (min-width: 1501px) {
+  .searchResultsContainer {
+    width: max(1125px,50%);
+  }
+}

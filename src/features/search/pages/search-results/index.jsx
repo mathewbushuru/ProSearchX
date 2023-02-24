@@ -42,9 +42,9 @@ export const SearchResultsPage = () => {
                 className={`code ${styles.searchResult} ${styles.codeDisclaimer}`}
               >
                 <p>
-                  [To prevent hitting my scraping rate limit, I have turned search off
-                  and I'm using a cached previous query('ubc'). If you are
-                  looking at the code, you can turn it back on at
+                  [To prevent hitting the scraping rate limit, I have turned
+                  search off and I'm using a cached previous query('ubc'). If
+                  you are looking at the code, you can turn it back on at
                   /src/config/index.js by changing SEARCH_ON from false to true,
                   or try searching 'ubc']
                 </p>
