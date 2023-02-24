@@ -5,6 +5,7 @@
   flex-direction: column;
 }
 .searchForm input {
+  -webkit-appearance: none;
   color: var(--googleBlack);
   padding: 10px 12px;
   padding-left: 60px;
@@ -12,7 +13,6 @@
   border-radius: 20px;
   outline: none;
   box-shadow: 0 2px 5px 0 rgba(60, 64, 67, 0.16);
-  -webkit-appearance: none;
 }
 .searchIcon {
   color: var(--googleGrey);
