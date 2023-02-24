@@ -1,3 +1,12 @@
+.desktopHeader {
+  padding-left: 32px;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.12);
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /*Hide scrollbar Firefox */
+}
+.desktopHeader::-webkit-scrollbar {
+  display: none; /*Hide scrollbar Chrome,Safari,Opera*/
+}
 .desktopNavbar {
   padding: 6px;
   margin-top: 6px;
@@ -38,8 +47,43 @@ span.navItem:hover {
   color: var(--googleGrey4);
   font-size: 24px;
 }
+.searchTypeContainer {
+  padding: 6px;
+  height: 36px;
+  width: min(690px, 100%);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchTypeOptions {
+  display: flex;
+  align-items: center;
+}
+.searchType {
+  color: var(--googleGrey4);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.searchType:first-child {
+  color: var(--googleBlue2);
+  border-bottom: 4px solid var(--googleBlue2);
+  padding-left: 0;
+}
+.searchTools {
+  text-align: right;
+}
+
 @media screen and (max-width: 650px) and (min-width: 501px) {
-  .navIcon{
+  .navIcon {
     display: none;
   }
 }
