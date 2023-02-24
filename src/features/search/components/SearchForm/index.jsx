@@ -9,7 +9,16 @@ export const SearchForm = () => {
   const searchQuery = searchParams.get("q");
   return (
     <Form className={styles.searchForm} action="/search" method="get">
-      <input type="search" name="q" id="search_query" defaultValue={searchQuery} />
+      <input
+        type="search"
+        name="q"
+        id="search_query"
+        defaultValue={searchQuery}
+        onFocus={() => {
+          // prevent ios keyboard from shifting webview up
+          window.scrollTo(0, 0);
+        }}
+      />
       <SearchIcon className={styles.searchIcon} />
     </Form>
   );

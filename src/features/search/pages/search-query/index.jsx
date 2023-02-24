@@ -46,7 +46,15 @@ export const SearchQueryPage = () => {
             method="get"
             ref={searchFormRef}
           >
-            <input type="search" name="q" id="search_query" />
+            <input
+              type="search"
+              name="q"
+              id="search_query"
+              onFocus={() => {
+                // prevent ios keyboard from shifting webview up
+                window.scrollTo(0, 0);
+              }}
+            />
             <SearchIcon className={styles.searchIcon} />
             <Microphone className={styles.microphoneIcon} />
             <Camera className={styles.cameraIcon} />
