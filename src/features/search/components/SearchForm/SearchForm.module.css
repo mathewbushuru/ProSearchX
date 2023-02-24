@@ -6,6 +6,7 @@
 }
 .searchForm input {
   -webkit-appearance: none;
+  background: transparent;
   color: var(--googleBlack);
   padding: 10px 12px;
   padding-left: 60px;
