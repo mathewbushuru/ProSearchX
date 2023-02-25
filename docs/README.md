@@ -7,27 +7,14 @@
 - 📡 API Layer
 - 🗃️ State Management
 - 🧪 Testing
+- ⚠️ Error Handling
+- 🌐 Deployment
 
 ## 💻 Application Overview
 
-[Demo](https://googly-lovat.vercel.app/)
+[Visit the deployed app.](https://googly-lovat.vercel.app/)
 
-### Data model
-
-- User - can have one of these roles:
-
-  - `ADMIN` can:
-    - create/edit/delete ...
-    - create/delete all ...
-    - delete users
-    - edit own profile
-  - `USER` - can:
-    - edit own profile
-    - create/delete own ...
-
-- ...
-
-### Getting Started with Codebase
+#### Getting Started with Codebase
 
 Prerequisites:
 
@@ -57,9 +44,25 @@ Launches the test runner in the interactive watch mode.
 
 Builds the app for production to the `build` folder.
 
+#### Data model
+
+I plan to implement authentication later on in the project to allow saving search history.
+
+- User - can have one of these roles:
+
+  - `GUEST` can:
+
+    - create search queries
+
+  - `USER` - can:
+    - create search queries
+    - edit own profile
+    - edit/delete search history
+    - delete own profile
+
 ## ⚙️ Project Configuration
 
-The application has been bootstrapped using `Create React App` for simplicity.
+The application has been bootstrapped using `Create React App`
 
 #### Absolute imports
 
@@ -76,9 +79,96 @@ In the `jsconfig.json` file:
 }
 ```
 
-We can then import a component without the relative slashes by starting from `src`. For example from anywhere in the  project, we can use this:
+We can then import a component without the relative slashes by starting from `src`. For example from anywhere in the project, we can use this:
 
 `import { MainLayout } from "layouts";`
+
+#### Routing
+
+The app uses the `React-router v6.8.1`.
+
+The root router (`appRouter`) for the app is found at `src/routes`. It uses the `createBrowserRouter` function to combine app-wide routes defined at `src/routes/app-routes.js` with all the feature specific routes such as the search routes defined at `src/features/search/routes`. The `appRouter` is used to create the `AppProvider` component that then wraps the whole app.
+
+When defining the routes and their corresponding paths and elements, remember to also include an error element component that handles any errors that occur for that path.
+
+If nested routes are needed, pass them as an array to the children key. Remember to include the `Outlet` component in the parent route if you want it to to be embedded in the parent component
+
+Use `action` functions to define what happens when forms are submitted. As a result an example routes array would look like
+
+```sh
+const searchRoutes = [
+  {
+    path: "/search",
+    element: <SearchResultsPage />,
+    errorElement: <SearchErrorPage />,
+    action: searchAction,
+    children: [
+      {
+        errorElement: <SearchChildrenErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "search-child",
+            element: <SearchChild />,
+            action: searchChildAction,
+          },
+          /* the rest of the routes */
+        ],
+      },
+    ]
+  },
+];
+```
+
+To enable active link styling use `NavLink` instead of `Link`. When the user is at the url, the class name would be `active`.
+
+```sh
+<NavLink
+  to={`/gmail`}
+  className={({ isActive, isPending }) =>
+    isActive
+      ? "active"
+      : isPending
+      ? "loading"
+      : ""
+  }
+>
+  Home
+</NavLink>
+```
+
+As you have noticed, I prefer to configure routed with objects but you can also do it with JSX elements as shown in react-router's documentation:
+
+```sh
+createRoutesFromElements(
+    <Route
+      path="/"
+      element={<Root />}
+      action={rootAction}
+      errorElement={<ErrorPage />}
+    >
+      <Route errorElement={<ErrorPage />}>
+        <Route index element={<Index />} />
+        <Route
+          path="contacts/:contactId"
+          element={<Contact />}
+          loader={contactLoader}
+          action={contactAction}
+        />
+        <Route
+          path="contacts/:contactId/edit"
+          element={<EditContact />}
+          loader={contactLoader}
+          action={editAction}
+        />
+        <Route
+          path="contacts/:contactId/destroy"
+          action={destroyAction}
+        />
+      </Route>
+    </Route>
+  )
+```
 
 ## 🗄️ Project Structure
 
@@ -87,9 +177,9 @@ Most of the code lives in the `src` folder and looks like this:
 ```sh
 src
 |
-+-- assets            # assets folder can contain all the static files such as images, fonts, etc.
++-- assets            # assets folder can contain all the static files such as images, etc.
 |
-+-- components        # shared components used across the entire application
++-- components        # shared components used across the entire application - app's component library
 |
 +-- config            # all the global configuration, env variables etc. get exported from here and used in the app
 |
@@ -97,7 +187,7 @@ src
 |
 +-- hooks             # shared hooks used across the entire application
 |
-+-- layout            # Global wrapper layouts containing eg nav, footer
++-- layout            # Global wrapper layouts containing for example the nav, footer
 |
 +-- lib               # re-exporting different libraries preconfigured for the application
 |
@@ -112,7 +202,7 @@ src
 +-- utils             # shared utility functions
 ```
 
-We keep most of the code in the `features` folder which contains different feature-based things. The feature-based folders contain domain specific code for those specific features. This makes it easy to maintain and scale the application .
+We keep most of the code in the `features` directory. The feature-based folders contain domain specific code for those specific features. This makes it easy to maintain and scale the application. Example features for this Google clone would be `search`, `drive`, `gmail`,etc
 
 The directory below shows an example feature
 
@@ -127,7 +217,7 @@ src/features/example-feature
 |
 +-- hooks       # hooks scoped to a specific feature
 |
-+-- layout      # Feature specific layouts containing eg nav, footer
++-- layout      # Feature specific layouts
 |
 +-- pages       # Pages that will be rendered on corresponding routes
 |
@@ -169,24 +259,34 @@ However if I have to, I prefer headless component libraries like Radix UI that h
 
 ## 📡 API Layer
 
-...
+I am creating API request declarations on a feature by feature basis. For the search feature, its API can be found at `src/features/search/search-api.js`
+
+For this API to work, you need relevant environment variables. In particular your `.env` file needs
+
+```sh
+REACT_APP_SEARCH_ENDPOINT1_URL=<API_ENDPOINT>
+REACT_APP_SEARCH_ENDPOINT1_KEY=<API_KEY>
+REACT_APP_SEARCH_ENDPOINT1_HOST=<API_HOST>
+```
+
+These are used to set up the project at `src/config`. The config file also has the variable `SEARCH_ON`. This is set to `false` to prevent getting blocked because of too many requests from your app or hitting the rate limit. Change it to `true` once you are ready for the app to start receiving search results from the API.
 
 ## 🗃️ State Management
 
-There is no need to keep all of the state in a single centralized store. There are different needs for different types of state that can be split into several types:
+Instead of maintaining a single centralized store, I'm using different types of state for different needs of the app to make it easy to maintain and scale
 
 #### Component State
 
-This is the state that only a component needs, and it is not meant to be shared anywhere else. But you can pass it as prop to children components if needed. Most of the time, you want to start from here and lift the state up if needed elsewhere. For this type of state, you will usually need:
+This is the state that only a component needs, and it is not meant to be shared anywhere else. But you can pass it as prop to children components if needed. Start from here and lift the state up if needed elsewhere. For this type of state, we need:
 
-- useState - for simpler states that are independent
-- useReducer - for more complex states where on a single action you want to update several pieces of state
+- `useState` - for simpler states that are independent
+- `useReducer` - for more complex states where on a single action you want to update several pieces of state
 
 #### Application State
 
 This is the state that controls interactive parts of an application. Opening modals, notifications, changing color mode, etc. For best performance and maintainability, keep the state as close as possible to the components that are using it. Don't make everything global out of the box.
 
-I prefer Redux with Redux Toolkit but React's Context also works.
+I prefer `Redux` with `Redux-toolkit` but React's `Context` also works.
 
 #### Server Cache State
 
@@ -198,16 +298,20 @@ This is a state that tracks users inputs in a form.
 
 Forms in React can be controlled (`useState`) and uncontrolled (`useRef`). In addition to just using React, some other solutions include
 
-- React Hook Form
-- Formik
-- React Final Form
+In addition I'm using `React-router v6` `Form` component that wraps around html's form component so that form actions are tightly coupled with routing
 
 #### URL State
 
-State that is being kept in the address bar of the browser. It is usually tracked via url params (`/app/${dynamicParam}`) or query params (`/app?dynamicParam=1`). It can be accessed and controlled via your routing solution such as `react-router-dom`.
+State that is being kept in the address bar of the browser. It is usually tracked via url params (`/app/${dynamicParam}`) or query params (`/app?dynamicParam=1`). It is accessed and controlled via the routing solution `react-router-dom`.
 
 ## 🧪 Testing
 
-- Jest
-- Testing Library
-  ...
+I am using CRA's default testing set up: `Testing Library` and `Jest`
+
+## ⚠️ Error Handling
+
+The app uses React Router V6 for global error handling: Any uncaught or unhandled error does not break the app, instead a nice message is shown to the user before they are redirected.
+
+## 🌐 Deployment
+
+This project is hosted on Vercel. See a demo [here](https://googly-lovat.vercel.app/)
