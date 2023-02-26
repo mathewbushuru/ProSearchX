@@ -32,6 +32,7 @@ export const SearchQueryPage = () => {
         {error && (
           <div>Unexpected error: {error.statusText || error.message}</div>
         )}
+
         <div className={styles.logoWrapper}>
           <img
             src={googleLogo}
@@ -39,6 +40,7 @@ export const SearchQueryPage = () => {
             className={styles.logoImage}
           />
         </div>
+
         <div className={styles.main}>
           <Form
             className={styles.searchForm}
@@ -46,15 +48,12 @@ export const SearchQueryPage = () => {
             method="get"
             ref={searchFormRef}
           >
-            <input
-              type="search"
-              name="q"
-              id="search_query"
-            />
+            <input type="search" name="q" id="search_query" />
             <SearchIcon className={styles.searchIcon} />
             <Microphone className={styles.microphoneIcon} />
             <Camera className={styles.cameraIcon} />
           </Form>
+
           <div className={styles.searchButtons}>
             <PrimaryButton
               className={styles.transparentButton}
@@ -66,9 +65,11 @@ export const SearchQueryPage = () => {
               <Link to="/doodles">I'm Feeling Lucky</Link>
             </PrimaryButton>
           </div>
+
           <div className={styles.otherLanguages}>
             Google offered in: <span> Français</span>
           </div>
+
           <div className={styles.trendingSearches}>
             {width < 501 && <MobileTrendingSearches />}
           </div>

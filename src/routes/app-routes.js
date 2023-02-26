@@ -1,8 +1,6 @@
 import { SearchQueryPage } from "features/search/pages";
 import { ComingSoon } from "components/UtilComponents";
 
- 
-
 const appRoutes = [
   {
     path: "/",
