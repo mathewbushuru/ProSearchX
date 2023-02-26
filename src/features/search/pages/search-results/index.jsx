@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { BiWorld as LinkIcon } from "react-icons/bi";
 
-import { searchApi } from "features/search/api/search-api";
 import { useSearch } from "features/search/hooks";
 import { SEARCH_ON } from "config";
 
@@ -27,9 +26,6 @@ export const SearchResultsPage = () => {
       </SearchResultsLayout>
     );
   }
-
-  // const searchResults = searchApi(searchQuery);
-
   return (
     <SearchResultsLayout>
       <div className={styles.searchResultsContainer}>
