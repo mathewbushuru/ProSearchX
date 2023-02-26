@@ -4,7 +4,5 @@ import { searchEngineApi } from "features/search/api/search-engine-api";
 export const useSearch = (searchQuery) => {
   const searchResults = searchApi(searchQuery);
 
-  searchEngineApi(searchQuery);
-
   return searchResults;
 };

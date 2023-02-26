@@ -27,7 +27,7 @@ export const searchApi = (searchQuery) => {
       })
       .catch((err) => console.error(err));
   } else {
-    // console.log("Search currently turned off to prevent hitting rate limit");
+    console.log("Search currently turned off to prevent hitting rate limit");
     return DUMMY_SEARCH_RESULTS;
   }
 };

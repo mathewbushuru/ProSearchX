@@ -12,4 +12,4 @@ export const SEARCH_ENGINE_API_URL = `${process.env.REACT_APP_SEARCH_ENGINE_API_
 export const SEARCH_ENGINE_PUBLIC_URL =
   process.env.REACT_APP_SEARCH_ENGINE_PUBLIC_URL;
 
-export const SEARCH_ON = false;
+export const SEARCH_ON = process.env.REACT_APP_SEARCH_ON==="true";

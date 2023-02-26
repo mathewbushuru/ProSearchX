@@ -1,9 +1,26 @@
 import axios from "axios";
 
-import { SEARCH_ENGINE_API_URL } from "config";
+import { SEARCH_ENGINE_API_URL, SEARCH_ON } from "config";
+import DUMMY_SEARCH_ENGINE_RESULTS from "./dummy-search-engine-results";
 
 export const searchEngineApi = async (searchQuery) => {
-  const response = await axios.get(`${SEARCH_ENGINE_API_URL}&q=${searchQuery}`);
-  const searchData = response.data;
-  console.log(searchData);
+  if (SEARCH_ON) {
+    let searchData;
+    try {
+      const response = await axios.get(
+        `${SEARCH_ENGINE_API_URL}&q=${searchQuery}`
+      );
+      searchData = await response.data;
+    } catch (err) {
+      //   console.log(err?.response?.data?.error?.message);
+      console.log(
+        "I unfortunately hit the rate limit. Using cached search result for now until I resolve it"
+      );
+      return DUMMY_SEARCH_ENGINE_RESULTS;
+    }
+    return searchData;
+  } else {
+    console.log("Engine currently turned off to prevent hitting rate limit");
+    return DUMMY_SEARCH_ENGINE_RESULTS;
+  }
 };
