@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { BiWorld as LinkIcon } from "react-icons/bi";
 
 import { searchApi } from "features/search/api/search-api";
+import { useSearch } from "features/search/hooks";
 import { SEARCH_ON } from "config";
 
 import { SearchResultsLayout } from "features/search/layouts";
@@ -12,6 +13,7 @@ export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
 
   const searchQuery = searchParams.get("q");
+  const searchResults = useSearch(searchQuery);
 
   if (searchQuery.trim().length === 0) {
     return (
@@ -26,7 +28,7 @@ export const SearchResultsPage = () => {
     );
   }
 
-  const searchResults = searchApi(searchQuery);
+  // const searchResults = searchApi(searchQuery);
 
   return (
     <SearchResultsLayout>
