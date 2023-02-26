@@ -4,6 +4,7 @@ import { SEARCH_ENGINE_API_URL, SEARCH_ON } from "config";
 import DUMMY_SEARCH_ENGINE_RESULTS from "./dummy-search-engine-results";
 
 export const searchEngineApi = async (searchQuery) => {
+  let hitLimit;
   if (SEARCH_ON) {
     let searchData;
     try {
@@ -16,11 +17,14 @@ export const searchEngineApi = async (searchQuery) => {
       console.log(
         "I unfortunately hit the rate limit. Using cached search result for now until I resolve it"
       );
-      return DUMMY_SEARCH_ENGINE_RESULTS;
+      hitLimit = true;
+      return { searchResults: DUMMY_SEARCH_ENGINE_RESULTS, hitLimit: hitLimit };
     }
-    return searchData;
+    hitLimit = false;
+    return { searchResults: searchData, hitLimit: hitLimit };
   } else {
     console.log("Engine currently turned off to prevent hitting rate limit");
-    return DUMMY_SEARCH_ENGINE_RESULTS;
+    hitLimit = false;
+    return { searchResults: DUMMY_SEARCH_ENGINE_RESULTS, hitLimit: hitLimit };
   }
 };

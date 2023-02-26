@@ -11,7 +11,10 @@ import { SearchResultsLayout } from "features/search/layouts";
 import styles from "./SearchResultsPage.module.css";
 
 export const SearchResultsPage = () => {
-  const [searchResults, setSearchResults] = useState(null);
+  const [searchResponse, setSearchResponse] = useState({
+    searchResults: null,
+    hitLimit: false,
+  });
   const [searchParams] = useSearchParams();
 
   const searchQuery = searchParams.get("q");
@@ -19,8 +22,8 @@ export const SearchResultsPage = () => {
   // const searchResults = useSearch(searchQuery);
   useEffect(() => {
     async function getSearchResults() {
-      const receivedSearchResults = await searchEngineApi(searchQuery);
-      setSearchResults(receivedSearchResults);
+      const receivedSearchResponse = await searchEngineApi(searchQuery);
+      setSearchResponse(receivedSearchResponse);
     }
     getSearchResults();
   }, [searchQuery]);
@@ -37,6 +40,8 @@ export const SearchResultsPage = () => {
       </SearchResultsLayout>
     );
   }
+
+  const { searchResults, hitLimit } = searchResponse;
 
   if (!searchResults) {
     return (
@@ -67,6 +72,18 @@ export const SearchResultsPage = () => {
                 are looking at the code, you can turn it back on at
                 /src/config/index.js by changing SEARCH_ON from false to true,
                 or try searching 'ubc']
+              </p>
+            </div>
+          )}
+
+          {hitLimit && searchQuery.trim().toLowerCase() !== "ubc" && (
+            <div
+              className={`code ${styles.searchResult} ${styles.codeDisclaimer}`}
+            >
+              <p>
+                [Unfortunately, I have hit the scraping limit and will be unable to
+                return real time google results for 24hrs. I'm using a
+                cached previous query('ubc') for now.]
               </p>
             </div>
           )}
