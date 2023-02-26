@@ -296,9 +296,7 @@ This is the state that comes from the server which is being cached on the client
 
 This is a state that tracks users inputs in a form.
 
-Forms in React can be controlled (`useState`) and uncontrolled (`useRef`). In addition to just using React, some other solutions include
-
-In addition I'm using `React-router v6` `Form` component that wraps around html's form component so that form actions are tightly coupled with routing
+Forms in React can be controlled (`useState`) and uncontrolled (`useRef`). I'm using `React-router v6` `Form` component that wraps around html's form component so that form actions are tightly coupled with routing
 
 #### URL State
 
