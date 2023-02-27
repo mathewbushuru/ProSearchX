@@ -874,13 +874,13 @@ const searchResultsPage4 = {
   ],
 };
 
-// const DUMMY_SEARCH_RESULTS = [
-//   searchResultsPage1,
-//   searchResultsPage2,
-//   searchResultsPage3,
-//   searchResultsPage4,
-// ];
+const DUMMY_SEARCH_RESULTS = [
+  searchResultsPage1,
+  searchResultsPage2,
+  searchResultsPage3,
+  searchResultsPage4,
+];
 
-const DUMMY_SEARCH_RESULTS = [searchResultsPage1];
+// const DUMMY_SEARCH_RESULTS = [searchResultsPage1];
 
 export default DUMMY_SEARCH_RESULTS;
