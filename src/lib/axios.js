@@ -4,7 +4,7 @@ import localStorageHelpers from "utils/local-storage-helpers";
 import { API_URL } from "config";
 
 function authRequestInterceptor(config) {
-  const token = localStorageHelpers.getToken();
+  const token = localStorageHelpers.getToken("auth");
   if (token) {
     config.headers.authorization = `${token}`;
   }

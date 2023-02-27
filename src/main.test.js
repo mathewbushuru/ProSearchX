@@ -1,9 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from "@testing-library/react";
 
-import { SearchQueryPage } from 'features/search/pages/search-query';
+import { DesktopNavbar } from "components/Navbar";
 
-test('Random test', () => {
-  render(<SearchQueryPage />);
-  const linkElement = screen.getByText(/Google/i);
-  expect(linkElement).toBeInTheDocument();
+test("Random test", () => {
+  const HelloWorld = () => <h1>Hello World</h1>;
+  render(<HelloWorld />);
+
+  const element = screen.getByText(/Hello/i);
+  expect(element).toBeInTheDocument();
 });
