@@ -1,7 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import appRoutes from "./app-routes";
+import publicRoutes from "./public-routes";
+import protectedRoutes from "./protected-routes";
+
 import searchRoutes from "features/search/routes";
 
-export const appRouter = createBrowserRouter([...appRoutes, ...searchRoutes]);
- 
+const aunthenticated = false;
+
+const commonRoutes = [...publicRoutes, ...searchRoutes];
+
+const routes = aunthenticated
+  ? [...commonRoutes, ...protectedRoutes]
+  : commonRoutes;
+
+export const appRouter = createBrowserRouter(routes);

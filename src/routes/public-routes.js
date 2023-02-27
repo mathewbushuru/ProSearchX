@@ -1,7 +1,7 @@
 import { SearchQueryPage } from "features/search/pages";
 import { ComingSoon } from "components/UtilComponents";
 
-const appRoutes = [
+const publicRoutes = [
   {
     path: "/",
     element: <SearchQueryPage />,
@@ -33,4 +33,4 @@ const appRoutes = [
   },
 ];
 
-export default appRoutes;
+export default publicRoutes;
