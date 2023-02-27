@@ -35,7 +35,7 @@ export const SearchResultsPage = () => {
     return (
       <SearchResultsLayout>
         <div className={`code ${styles.emptyErrorMessageContainer}`}>
-          Sorry there was an error!
+          Searching...
         </div>
       </SearchResultsLayout>
     );
