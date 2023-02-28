@@ -5,6 +5,9 @@
   padding-bottom: 18px;
   border-bottom: 1px solid var(--googleGrey2);
 }
+.searchPreferencesSection:last-of-type{
+  border-bottom: none;
+}
 .header {
   padding: 5px 0;
   display: flex;
@@ -64,35 +67,22 @@
   color: var(--googleGrey);
   font-size: 13px;
 }
-
-.trendingSearchList {
+.importantWords {
+  padding-left: 6px;
+  padding-right: 36px;
   display: flex;
   flex-direction: column;
 }
-.trendingSearchRow {
-  height: 55px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--googleGrey2);
-}
-.trendingIcon {
-  font-size: 24px;
-  color: var(--googleBlack2);
-  margin-right: 8px;
-  margin-left: 14px;
-}
-.queryContent {
-  margin: 5px 0 5px 13px;
-}
-.trendingSearchRow p {
-  margin: 0;
-  padding: 0;
+.importantWords input {
   color: var(--googleBlack);
-  font-size: 16px;
-  line-height: 20px;
-  cursor: pointer;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: 1px solid var(--googleGrey2);
+  border-radius: 10px;
+  outline: none;
 }
-.trendingSearchRow p.description {
+.importantWords label {
+  margin-left: 6px;
   color: var(--googleGrey);
-  font-size: 15px;
+  font-size: 13px;
 }

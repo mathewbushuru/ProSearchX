@@ -1,6 +1,5 @@
 import { Link, Form } from "react-router-dom";
 import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
-import { TbTrendingUp as TrendingIcon } from "react-icons/tb";
 import { FaGlobeAmericas as GlobalIcon } from "react-icons/fa";
 import { FaRedditAlien as RedditIcon } from "react-icons/fa";
 import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
@@ -106,37 +105,44 @@ export const MobileSearchPreferences = () => {
             <label htmlFor="file_docx">.docx</label>
           </div>
         </Form>
+      </div> 
+
+      <div className={styles.searchPreferencesSection}>
+        <div className={styles.header}>
+          <p>Exact words</p>
+          <MoreIcon className={styles.moreIcon} />
+        </div>
+        <Form className={styles.importantWords}>
+          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <label>Find pages with this exact word or phrase</label>
+          <label className="code">e.g Lord of the Rings</label>
+        </Form>
       </div>
 
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
-          <p>Exclude false positives</p>
+          <p>Similar words</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <div className={styles.trendingSearchList}>
-          {DUMMY_TRENDING_SEARCH_ITEMS.map((searchItem, index) => (
-            <TrendingSearchRow
-              key={index}
-              title={searchItem.title}
-              description={searchItem.desc}
-            />
-          ))}
-        </div>
+        <Form className={styles.importantWords}>
+          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <label>Find pages with this any of these words</label>
+          <label className="code">e.g Sauron, The Dark Lord</label>
+        </Form>
       </div>
+
+      <div className={styles.searchPreferencesSection}>
+        <div className={styles.header}>
+          <p>Exclude words</p>
+          <MoreIcon className={styles.moreIcon} />
+        </div>
+        <Form className={styles.importantWords}>
+          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <label>Find pages with none of these words</label>
+          <label className="code">e.g Rings of Power</label>
+        </Form>
+      </div>
+
     </>
   );
 };
-
-function TrendingSearchRow({ title, description = null }) {
-  return (
-    <div className={styles.trendingSearchRow}>
-      <TrendingIcon className={styles.trendingIcon} />
-      <div className={styles.queryContent}>
-        <Link to={`/search?q=${title}`}>
-          <p>{title}</p>
-          {description && <p className={styles.description}>{description}</p>}
-        </Link>
-      </div>
-    </div>
-  );
-}
