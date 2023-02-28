@@ -1,8 +1,10 @@
-# Googly
+<h1 align="center">Google ProSearchX</h1>
 
-This is a clone of Google Search. I have developed it with ReactJS and implemented/styled every component in the app from scratch. I am using icons from `React-icons` and `React-router v6` for routing.
+This is a fork of my Google search clone project ([Googly](https://github.com/mathewbushuru/googly)) but with additional features and enhancements to make Google Search more effective and powerful. 
 
-The app is hosted using Vercel. Visit the app [here](https://googly-lovat.vercel.app/)
+It is designed for power users and professionals who require an easier and faster way to unlock Google's search capabilities. If you're like me and are tired of typing 'reddit' or 'stackoverflow' everytime on Google, then this would make a good replacement for your browser's homepage or new tab.
+
+The React app is hosted using Vercel. Visit the app at [pro-search-x.vercel.app](https://pro-search-x.vercel.app/)
 
 This project follows the structure of my react-starter-kit which is documented at `./docs/README.md`
 
@@ -20,8 +22,11 @@ This project follows the structure of my react-starter-kit which is documented a
 
 ##### Features
 
-- A mobile-first design approach and a fully responsive implementation. As shown in the photos below, the app at different screen size corresponds to Google's current implementation.
-- For the backend, I am using an API scraper that retrieves Google search results in real time. Learn more in the  API Layer section.
+- Only search specific websites.
+- Only return results from a specific timeframe
+- Choose file format of expected results.
+- exclude false positives
+- A mobile-first design approach and a fully responsive implementation. As shown in the photos below, the app is styled to be usable at different screen sizes.
 
 ##### Progress Images
 
