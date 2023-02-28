@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Form } from "react-router-dom";
 import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
 import { TbTrendingUp as TrendingIcon } from "react-icons/tb";
 import { FaGlobeAmericas as GlobalIcon } from "react-icons/fa";
@@ -49,15 +49,29 @@ export const MobileSearchPreferences = () => {
           <p>Date published</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <div className={styles.trendingSearchList}>
-          {DUMMY_TRENDING_SEARCH_ITEMS.map((searchItem, index) => (
-            <TrendingSearchRow
-              key={index}
-              title={searchItem.title}
-              description={searchItem.desc}
+        <Form className={styles.dateOptions}>
+          <div>
+            <input
+              type="radio"
+              id="date_anytime"
+              name="dateOption"
+              defaultChecked={true}
             />
-          ))}
-        </div>
+            <label htmlFor="date_anytime">Any time</label>
+          </div>
+          <div>
+            <input type="radio" id="date_year" name="dateOption" />
+            <label htmlFor="date_year">Past year</label>
+          </div>
+          <div>
+            <input type="radio" name="dateOption" id="date_month" />
+            <label htmlFor="date_month">Past month</label>
+          </div>
+          <div>
+            <input type="radio" name="dateOption" id="date_week" />
+            <label htmlFor="date_week">Past week</label>
+          </div>
+        </Form>
       </div>
 
       <div className={styles.searchPreferencesSection}>
@@ -65,15 +79,33 @@ export const MobileSearchPreferences = () => {
           <p>File format</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <div className={styles.trendingSearchList}>
-          {DUMMY_TRENDING_SEARCH_ITEMS.map((searchItem, index) => (
-            <TrendingSearchRow
-              key={index}
-              title={searchItem.title}
-              description={searchItem.desc}
+        <Form className={styles.fileOptions}>
+          <div>
+            <input
+              type="radio"
+              id="file_anytime"
+              name="fileOption"
+              defaultChecked={true}
             />
-          ))}
-        </div>
+            <label htmlFor="file_anytime">Any format</label>
+          </div>
+          <div>
+            <input type="radio" id="file_pdf" name="fileOption" />
+            <label htmlFor="file_pdf">.pdf</label>
+          </div>
+          <div>
+            <input type="radio" name="fileOption" id="file_zip" />
+            <label htmlFor="file_zip">.zip</label>
+          </div>
+          <div>
+            <input type="radio" name="fileOption" id="file_pptx" />
+            <label htmlFor="file_pptx">.pptx</label>
+          </div>
+          <div>
+            <input type="radio" name="fileOption" id="file_docx" />
+            <label htmlFor="file_docx">.docx</label>
+          </div>
+        </Form>
       </div>
 
       <div className={styles.searchPreferencesSection}>
