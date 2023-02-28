@@ -58,7 +58,7 @@ export const SearchQueryPage = () => {
                 type="search"
                 name="q"
                 id="search_query"
-                autoFocus={true}
+                autoFocus={false}
               />
               <SearchIcon
                 className={styles.searchIcon}
