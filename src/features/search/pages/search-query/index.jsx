@@ -9,7 +9,7 @@ import { BsCamera as Camera } from "react-icons/bs";
 
 import { MainLayout } from "layouts";
 import { PrimaryButton } from "components/UI";
-import { MobileTrendingSearches } from "features/search/components";
+import { MobileSearchPreferences } from "features/search/components/SearchPreferences";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
 
@@ -90,15 +90,8 @@ export const SearchQueryPage = () => {
           </div>
 
           <div className={styles.nonStickyContent}>
-            <div className={styles.trendingSearches}>
-              {width < 501 && <MobileTrendingSearches />}
-            </div>
-
-            <div className={styles.trendingSearches}>
-              {width < 501 && <MobileTrendingSearches />}
-            </div>
-            <div className={styles.trendingSearches}>
-              {width < 501 && <MobileTrendingSearches />}
+            <div className={styles.mobileSearchPreferences}>
+              {width < 501 && <MobileSearchPreferences />}
             </div>
           </div>
         </div>

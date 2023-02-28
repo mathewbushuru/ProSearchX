@@ -1,0 +1,75 @@
+.searchPreferencesSection {
+  margin-left: 24px;
+  margin-right: 14px;
+  margin-bottom: 18px;
+}
+.header {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header p {
+  margin: 0;
+  padding: 0;
+  color: var(--googleBlack);
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+.moreIcon {
+  font-size: 22px;
+}
+.websiteOptions {
+  margin: 8px 6px;
+  display: flex;
+  gap: 4px;
+}
+.websiteOptionIconWrapper {
+  width: 62px;
+  height: 62px;
+  background-color: var(--googleWhite2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectedWebsiteOption {
+  background-color: var(--googleBlueBg);
+}
+.websiteOptionIcon {
+  color: var(--googleBlue);
+  font-size: 28px;
+}
+
+.trendingSearchList {
+  display: flex;
+  flex-direction: column;
+}
+.trendingSearchRow {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--googleGrey2);
+}
+.trendingIcon {
+  font-size: 24px;
+  color: var(--googleBlack2);
+  margin-right: 8px;
+  margin-left: 14px;
+}
+.queryContent {
+  margin: 5px 0 5px 13px;
+}
+.trendingSearchRow p {
+  margin: 0;
+  padding: 0;
+  color: var(--googleBlack);
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.trendingSearchRow p.description {
+  color: var(--googleGrey);
+  font-size: 15px;
+}

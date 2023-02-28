@@ -8,6 +8,7 @@
   --googleBlueLink: #0060f0;
   --googleBlueLink2: #1558d6;
   --googleBlueLink3: #1a0dab;
+  --googleBlueBg: #e2eeff;
   --googleBlack: #202124;
   --googleBlack2: #3c4043;
   --googleWhite: #fff;
@@ -29,6 +30,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.code{
+.code {
   font-family: monospace;
 }
