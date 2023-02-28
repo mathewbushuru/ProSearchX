@@ -93,6 +93,20 @@ export const SearchQueryPage = () => {
             <div className={styles.mobileSearchPreferences}>
               {width < 501 && <MobileSearchPreferences />}
             </div>
+            <div className={styles.mobileSearchButtons}>
+              <PrimaryButton
+                className={styles.mobileSearchButton}
+                onClick={() => submit(searchFormRef.current)}
+              >
+                Search
+              </PrimaryButton>
+              <PrimaryButton
+                onClick={() => submit(searchFormRef.current)}
+                className={styles.mobileSearchButton}
+              >
+                <Link to="/images">Advanced Search</Link>
+              </PrimaryButton>
+            </div>
           </div>
         </div>
       </div>

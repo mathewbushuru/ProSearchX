@@ -142,7 +142,6 @@ export const MobileSearchPreferences = () => {
           <label className="code">e.g Rings of Power</label>
         </Form>
       </div>
-
     </>
   );
 };
