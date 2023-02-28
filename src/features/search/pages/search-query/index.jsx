@@ -30,54 +30,76 @@ export const SearchQueryPage = () => {
   return (
     <MainLayout>
       <div className={styles.searchQueryPage}>
-        {error && (
-          <div>Unexpected error: {error.statusText || error.message}</div>
-        )}
-
-        <div className={styles.logoWrapper}>
-          <img
-            src={googleLogo}
-            alt="Google Logo"
-            className={styles.googleLogoImage}
-          />
-          <img
-            src={logo}
-            alt="ProSearch Logo"
-            className={styles.prosearchLogoImage}
-          />
-        </div>
-
         <div className={styles.main}>
-          <Form
-            className={styles.searchForm}
-            action="/search"
-            method="get"
-            ref={searchFormRef}
-          >
-            <input type="search" name="q" id="search_query" />
-            <SearchIcon className={styles.searchIcon} />
-            <Microphone className={styles.microphoneIcon} />
-            <Camera className={styles.cameraIcon} />
-          </Form>
+          <div className={styles.stickySearchbar}>
+            {error && (
+              <div>Unexpected error: {error.statusText || error.message}</div>
+            )}
+            <div className={styles.logoWrapper}>
+              <img
+                src={googleLogo}
+                alt="Google Logo"
+                className={styles.googleLogoImage}
+              />
+              <img
+                src={logo}
+                alt="ProSearch Logo"
+                className={styles.prosearchLogoImage}
+              />
+            </div>
 
-          <div className={styles.searchButtons}>
-            <PrimaryButton
-              className={styles.transparentButton}
-              onClick={() => submit(searchFormRef.current)}
+            <Form
+              className={styles.searchForm}
+              action="/search"
+              method="get"
+              ref={searchFormRef}
             >
-              Google Search
-            </PrimaryButton>
-            <PrimaryButton className={styles.transparentButton}>
-              <Link to="/doodles">I'm Feeling Lucky</Link>
-            </PrimaryButton>
+              <input
+                type="search"
+                name="q"
+                id="search_query"
+                autoFocus={true}
+              />
+              <SearchIcon
+                className={styles.searchIcon}
+                onClick={() => submit(searchFormRef.current)}
+              />
+              <Microphone className={styles.microphoneIcon} />
+              <Camera className={styles.cameraIcon} />
+            </Form>
+
+            <div className={styles.searchButtons}>
+              <PrimaryButton
+                className={styles.transparentButton}
+                onClick={() => submit(searchFormRef.current)}
+              >
+                Google Search
+              </PrimaryButton>
+              <PrimaryButton className={styles.transparentButton}>
+                <Link to="/doodles">I'm Feeling Lucky</Link>
+              </PrimaryButton>
+            </div>
+
+            <div className={styles.otherLanguages}>
+              Choose Options or{" "}
+              <span onClick={() => submit(searchFormRef.current)}>
+                {" "}
+                Search Now
+              </span>
+            </div>
           </div>
 
-          <div className={styles.otherLanguages}>
-            Google offered in: <span> Français</span>
-          </div>
+          <div className={styles.nonStickyContent}>
+            <div className={styles.trendingSearches}>
+              {width < 501 && <MobileTrendingSearches />}
+            </div>
 
-          <div className={styles.trendingSearches}>
-            {width < 501 && <MobileTrendingSearches />}
+            <div className={styles.trendingSearches}>
+              {width < 501 && <MobileTrendingSearches />}
+            </div>
+            <div className={styles.trendingSearches}>
+              {width < 501 && <MobileTrendingSearches />}
+            </div>
           </div>
         </div>
       </div>

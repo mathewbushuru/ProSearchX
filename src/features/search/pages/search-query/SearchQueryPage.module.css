@@ -5,24 +5,34 @@
   align-items: center;
 }
 .logoWrapper {
-  margin-top: 48px;
-  margin-bottom: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .googleLogoImage {
-  width: 160px;
+  width: 130px;
 }
 .prosearchLogoImage {
-  width: 210px;
+  width: 180px;
 }
 .main {
   width: 100%;
 }
+.stickySearchbar {
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.08);
+  background-color: var(--googleWhite);
+  position: fixed;
+  top: 65px;
+}
+.nonStickyContent {
+  padding-top: 285px;
+}
 .searchForm {
   padding: 12px 24px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -53,7 +63,7 @@
   color: var(--googleBlack2);
   text-align: center;
   font-size: 13px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .otherLanguages span {
   color: var(--googleBlue);
@@ -65,9 +75,10 @@
 
 @media (min-width: 501px) {
   .logoWrapper {
+    margin-top: 48px;
     margin-bottom: 0;
     display: flex;
-  flex-direction: row;
+    flex-direction: row;
     align-items: center;
     gap: 8px;
   }
@@ -119,5 +130,18 @@
   .otherLanguages {
     font-size: 14px;
     margin-top: 24px;
+  }
+  .stickySearchbar {
+    /* width: 100%; */
+    /* box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.08); */
+    /* background-color: var(--googleWhite); */
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+  }
+  .nonStickyContent {
+    padding-top: 0px;
   }
 }

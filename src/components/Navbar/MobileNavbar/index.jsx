@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
 
-import { PrimaryButton } from "components/UI";
-
 import styles from "./MobileNavbar.module.css";
 
 export const MobileNavbar = () => {

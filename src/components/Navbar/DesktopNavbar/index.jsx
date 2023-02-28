@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { IoApps as AppDrawer } from "react-icons/io5";
 
 import styles from "./DesktopNavbar.module.css";
 
