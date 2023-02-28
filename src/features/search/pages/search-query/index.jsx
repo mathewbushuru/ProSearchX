@@ -15,7 +15,8 @@ import { useWindowDimensions } from "hooks/ui_hooks";
 
 import styles from "./SearchQueryPage.module.css";
 
-import googleLogo from "assets/logo.png";
+import googleLogo from "assets/google-logo.png";
+import logo from "assets/logo5.png";
 
 export const SearchQueryPage = () => {
   const { width } = useWindowDimensions();
@@ -37,7 +38,12 @@ export const SearchQueryPage = () => {
           <img
             src={googleLogo}
             alt="Google Logo"
-            className={styles.logoImage}
+            className={styles.googleLogoImage}
+          />
+          <img
+            src={logo}
+            alt="ProSearch Logo"
+            className={styles.prosearchLogoImage}
           />
         </div>
 

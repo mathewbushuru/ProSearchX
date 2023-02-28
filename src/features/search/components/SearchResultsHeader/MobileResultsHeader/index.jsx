@@ -6,7 +6,7 @@ import { SearchForm } from "features/search/components";
 
 import styles from "./MobileHeader.module.css";
 
-import googleLogo from "assets/logo.png";
+import googleLogo from "assets/google-logo.png";
 
 export const MobileSearchResultsHeader = () => {
   const navigate = useNavigate();

@@ -13,7 +13,7 @@ import { SearchForm } from "features/search/components";
 
 import styles from "./DesktopHeader.module.css";
 
-import googleLogo from "assets/logo.png";
+import googleLogo from "assets/google-logo.png";
 
 export const DesktopSearchResultsHeader = () => {
   const navigate = useNavigate();
