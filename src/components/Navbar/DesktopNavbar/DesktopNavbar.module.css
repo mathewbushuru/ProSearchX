@@ -1,5 +1,5 @@
 .desktopNavbar {
-  padding: 6px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
 }
-.desktopNavbar a{
+.desktopNavbar a {
   text-decoration: none;
 }
 .navItem {
@@ -30,4 +30,44 @@ span.navItem:hover {
 .navIcon {
   color: var(--googleBlack);
   font-size: 24px;
+}
+.checkbox,
+.checkboxLabel {
+  margin: 0;
+}
+.checkbox {
+  margin-right: 20px;
+}
+/* remove default styling of checkbox and create outer toggle area  */
+input.checkbox {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid var(--googleBlack);
+  background: #eee;
+  transition: all 0.15s;
+}
+/* style ::before to look like a toggle switch  */
+input.checkbox::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 9px;
+  background-color: var(--googleBlack);
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  transition: all 0.4s;
+}
+/* change  outer bg color and move toggle switch when checkbox is checked  */
+input.checkbox:checked {
+  background-color: var(--googleYellow);
+  transition: all 0.4s;
+}
+input.checkbox:checked::before {
+  left: 50%;
+  transition: all 0.4s;
 }

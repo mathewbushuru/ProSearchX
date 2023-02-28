@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
-import { IoApps as AppDrawer } from "react-icons/io5";
 
 import { PrimaryButton } from "components/UI";
 
@@ -17,10 +16,19 @@ export const MobileNavbar = () => {
         </Link>
       </div>
       <div className={styles.navRight}>
-        <AppDrawer className={`${styles.navItem} ${styles.navIcon}`} />
-        <PrimaryButton className={styles.navItem}>
-          <Link to="/auth">Sign in</Link>
-        </PrimaryButton>
+        <label htmlFor="rememberOptions">
+          <span className={`${styles.navItem} ${styles.checkboxLabel}`}>
+            Save Options
+          </span>
+        </label>
+        <input
+          type="checkbox"
+          name="rememberOptions"
+          id="rememberOptions"
+          value={true}
+          defaultChecked={true}
+          className={`${styles.navItem} ${styles.checkbox}`}
+        />
       </div>
     </header>
   );
