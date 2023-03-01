@@ -10,6 +10,7 @@ import { IoAddOutline as AddIcon } from "react-icons/io5";
 import {
   changeWebsiteAction,
   changeDateAction,
+  changeFileAction,
 } from "features/search/stores/uiSlice";
 
 import styles from "./MobileSearchPreferences.module.css";
@@ -19,6 +20,7 @@ export const MobileSearchPreferences = () => {
 
   const shownWebsites = useSelector((state) => state.ui.shownWebsites);
   const datePublished = useSelector((state) => state.ui.datePublished);
+  const fileFormat = useSelector((state) => state.ui.fileFormat);
 
   return (
     <>
@@ -125,30 +127,60 @@ export const MobileSearchPreferences = () => {
           <p>File format</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form className={styles.fileOptions}>
+        <Form
+          className={styles.fileOptions}
+          onClick={(e) => {
+            dispatch(changeFileAction(e.target.value));
+          }}
+        >
           <div>
             <input
               type="radio"
               id="file_anytime"
               name="fileOption"
-              defaultChecked={true}
+              value="anyFormat"
+              defaultChecked={fileFormat.anyFormat}
             />
             <label htmlFor="file_anytime">Any format</label>
           </div>
           <div>
-            <input type="radio" id="file_pdf" name="fileOption" />
+            <input
+              type="radio"
+              id="file_pdf"
+              name="fileOption"
+              value="pdf"
+              defaultChecked={fileFormat.pdf}
+            />
             <label htmlFor="file_pdf">.pdf</label>
           </div>
           <div>
-            <input type="radio" name="fileOption" id="file_zip" />
+            <input
+              type="radio"
+              name="fileOption"
+              id="file_zip"
+              value="zip"
+              defaultChecked={fileFormat.zip}
+            />
             <label htmlFor="file_zip">.zip</label>
           </div>
           <div>
-            <input type="radio" name="fileOption" id="file_pptx" />
+            <input
+              type="radio"
+              name="fileOption"
+              id="file_pptx"
+              value="pptx"
+              defaultChecked={fileFormat.pptx}
+            />
             <label htmlFor="file_pptx">.pptx</label>
           </div>
           <div>
-            <input type="radio" name="fileOption" id="file_docx" />
+            <input
+              type="radio"
+              name="fileOption"
+              id="file_docx"
+              value="docx"
+              defaultChecked={fileFormat.docx}
+            />
             <label htmlFor="file_docx">.docx</label>
           </div>
         </Form>

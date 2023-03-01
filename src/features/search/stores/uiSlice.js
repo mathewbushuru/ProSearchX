@@ -67,7 +67,6 @@ export const uiSlice = createSlice({
     },
     changeDateAction: (state, action) => {
       if (action.payload) {
-        console.log(action.payload);
         switch (action.payload) {
           case "pastYear": {
             state.datePublished.anytime = false;
@@ -99,10 +98,56 @@ export const uiSlice = createSlice({
         }
       }
     },
+    changeFileAction: (state, action) => {
+      if (action.payload) {
+        switch (action.payload) {
+          case "pdf": {
+            state.fileFormat.anyFormat = false;
+            state.fileFormat.pdf = true;
+            state.fileFormat.zip = false;
+            state.fileFormat.pptx = false;
+            state.fileFormat.docx = false;
+            break;
+          }
+          case "zip": {
+            state.fileFormat.anyFormat = false;
+            state.fileFormat.pdf = false;
+            state.fileFormat.zip = true;
+            state.fileFormat.pptx = false;
+            state.fileFormat.docx = false;
+            break;
+          }
+          case "pptx": {
+            state.fileFormat.anyFormat = false;
+            state.fileFormat.pdf = false;
+            state.fileFormat.zip = false;
+            state.fileFormat.pptx = true;
+            state.fileFormat.docx = false;
+            break;
+          }
+          case "docx": {
+            state.fileFormat.anyFormat = false;
+            state.fileFormat.pdf = false;
+            state.fileFormat.zip = false;
+            state.fileFormat.pptx = false;
+            state.fileFormat.docx = true;
+            break;
+          }
+          default: {
+            state.fileFormat.anyFormat = true;
+            state.fileFormat.pdf = false;
+            state.fileFormat.zip = false;
+            state.fileFormat.pptx = false;
+            state.fileFormat.docx = false;
+          }
+        }
+      }
+    },
   },
 });
 
-export const { changeWebsiteAction, changeDateAction } = uiSlice.actions;
+export const { changeWebsiteAction, changeDateAction, changeFileAction } =
+  uiSlice.actions;
 
 const uiReducer = uiSlice.reducer;
 
