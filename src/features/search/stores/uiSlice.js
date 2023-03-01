@@ -143,11 +143,26 @@ export const uiSlice = createSlice({
         }
       }
     },
+    changeExactWordsAction: (state, action) => {
+      state.exactWords = action.payload;
+    },
+    changeSimilarWordsAction: (state, action) => {
+      state.similarWords = action.payload;
+    },
+    changeExcludeWordsAction: (state, action) => {
+      state.excludeWords = action.payload;
+    },
   },
 });
 
-export const { changeWebsiteAction, changeDateAction, changeFileAction } =
-  uiSlice.actions;
+export const {
+  changeWebsiteAction,
+  changeDateAction,
+  changeFileAction,
+  changeExactWordsAction,
+  changeSimilarWordsAction,
+  changeExcludeWordsAction,
+} = uiSlice.actions;
 
 const uiReducer = uiSlice.reducer;
 

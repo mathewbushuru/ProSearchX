@@ -11,6 +11,9 @@ import {
   changeWebsiteAction,
   changeDateAction,
   changeFileAction,
+  changeExactWordsAction,
+  changeSimilarWordsAction,
+  changeExcludeWordsAction,
 } from "features/search/stores/uiSlice";
 
 import styles from "./MobileSearchPreferences.module.css";
@@ -192,7 +195,15 @@ export const MobileSearchPreferences = () => {
           <MoreIcon className={styles.moreIcon} />
         </div>
         <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <input
+            type="search"
+            name="q"
+            id="search_query"
+            autoFocus={false}
+            onInput={(e) => {
+              dispatch(changeExactWordsAction(e.target.value));
+            }}
+          />
           <label>Find pages with this exact word or phrase</label>
           <label className="code">e.g Lord of the Rings</label>
         </Form>
@@ -204,7 +215,15 @@ export const MobileSearchPreferences = () => {
           <MoreIcon className={styles.moreIcon} />
         </div>
         <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <input
+            type="search"
+            name="q"
+            id="search_query"
+            autoFocus={false}
+            onInput={(e) => {
+              dispatch(changeSimilarWordsAction(e.target.value));
+            }}
+          />
           <label>Find pages with this any of these words</label>
           <label className="code">e.g Sauron, The Dark Lord</label>
         </Form>
@@ -216,7 +235,15 @@ export const MobileSearchPreferences = () => {
           <MoreIcon className={styles.moreIcon} />
         </div>
         <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <input
+            type="search"
+            name="q"
+            id="search_query"
+            autoFocus={false}
+            onInput={(e) => {
+              dispatch(changeExcludeWordsAction(e.target.value));
+            }}
+          />
           <label>Find pages with none of these words</label>
           <label className="code">e.g Rings of Power</label>
         </Form>
