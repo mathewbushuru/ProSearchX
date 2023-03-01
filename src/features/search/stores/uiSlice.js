@@ -30,18 +30,46 @@ export const uiSlice = createSlice({
     changeWebsiteAction: (state, action) => {
       switch (action.payload) {
         case "reddit": {
-          state.shownWebsites.all = false;
-          state.shownWebsites.reddit = true;
+          state.shownWebsites.reddit = !state.shownWebsites.reddit;
+          state.shownWebsites.all =
+            (state.shownWebsites.reddit === false &&
+              state.shownWebsites.stackOverflow === false &&
+              state.shownWebsites.twitter === false) ||
+            false;
           break;
         }
         case "stackOverflow": {
-          state.shownWebsites.all = false;
-          state.shownWebsites.stackOverflow = true;
+          state.shownWebsites.stackOverflow =
+            !state.shownWebsites.stackOverflow;
+          state.shownWebsites.all =
+            (state.shownWebsites.reddit === false &&
+              state.shownWebsites.stackOverflow === false &&
+              state.shownWebsites.twitter === false) ||
+            false;
           break;
         }
         case "twitter": {
+          state.shownWebsites.twitter = !state.shownWebsites.twitter;
+          state.shownWebsites.all =
+            (state.shownWebsites.reddit === false &&
+              state.shownWebsites.stackOverflow === false &&
+              state.shownWebsites.twitter === false) ||
+            false;
+          break;
+        }
+        default: {
+          state.shownWebsites.all = true;
+          state.shownWebsites.reddit = false;
+          state.shownWebsites.stackOverflow = false;
+          state.shownWebsites.twitter = false;
+        }
+      }
+    },
+    changeDateAction: (state, action) => {
+      switch (action.payload) {
+        case "reddit": {
           state.shownWebsites.all = false;
-          state.shownWebsites.twitter = true;
+          state.shownWebsites.reddit = true;
           break;
         }
         default: {
@@ -55,7 +83,7 @@ export const uiSlice = createSlice({
   },
 });
 
-export const { changeWebsiteAction } = uiSlice.actions;
+export const { changeWebsiteAction, changeDateAction } = uiSlice.actions;
 
 const uiReducer = uiSlice.reducer;
 
