@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
+
+import { toggleSaveOptionsAction } from "features/search/stores/preferencesHistorySlice";
 
 import styles from "./MobileNavbar.module.css";
 
 export const MobileNavbar = () => {
+  const saveOptionsFlag = useSelector(
+    (state) => state.preferencesHistory.saveOptions
+  );
+  const dispatch = useDispatch();
+
   return (
     <header className={styles.mobileNavbar}>
       <div className={styles.navLeft}>
@@ -13,7 +21,10 @@ export const MobileNavbar = () => {
           <span className={`${styles.navItem}`}>Images</span>
         </Link>
       </div>
-      <div className={styles.navRight}>
+      <div
+        className={styles.navRight}
+        onClick={() => dispatch(toggleSaveOptionsAction())}
+      >
         <label htmlFor="rememberOptions">
           <span className={`${styles.navItem} ${styles.checkboxLabel}`}>
             Save Options
@@ -23,8 +34,8 @@ export const MobileNavbar = () => {
           type="checkbox"
           name="rememberOptions"
           id="rememberOptions"
-          value={true}
-          defaultChecked={true}
+          value={saveOptionsFlag}
+          defaultChecked={saveOptionsFlag}
           className={`${styles.navItem} ${styles.checkbox}`}
         />
       </div>
