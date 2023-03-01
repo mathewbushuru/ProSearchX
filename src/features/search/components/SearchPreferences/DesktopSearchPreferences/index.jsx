@@ -6,15 +6,15 @@ import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
 import { FaTwitter as TwitterIcon } from "react-icons/fa";
 import { IoAddOutline as AddIcon } from "react-icons/io5";
 
-import styles from "./MobileSearchPreferences.module.css";
+import styles from "./DesktopSearchPreferences.module.css";
 
-export const MobileSearchPreferences = () => {
+export const DesktopSearchPreferences = () => {
   return (
-    <>
+    <div className={styles.searchPreferences}>
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
           <p>Websites to search</p>
-          <MoreIcon className={styles.moreIcon} />
+          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
         <div className={styles.websiteOptions}>
           <div
@@ -39,8 +39,25 @@ export const MobileSearchPreferences = () => {
 
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
+          <p>Exact words</p>
+          {/* <MoreIcon className={styles.moreIcon} /> */}
+        </div>
+        <Form className={styles.importantWords}>
+          <input
+            type="search"
+            name="q_exact"
+            id="search_query"
+            autoFocus={false}
+          />
+          <label>Find pages with this exact word or phrase</label>
+          <label className="code">e.g Lord of the Rings</label>
+        </Form>
+      </div>
+
+      <div className={styles.searchPreferencesSection}>
+        <div className={styles.header}>
           <p>Date published</p>
-          <MoreIcon className={styles.moreIcon} />
+          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
         <Form className={styles.dateOptions}>
           <div>
@@ -69,8 +86,25 @@ export const MobileSearchPreferences = () => {
 
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
+          <p>Similar words</p>
+          {/* <MoreIcon className={styles.moreIcon} /> */}
+        </div>
+        <Form className={styles.importantWords}>
+          <input
+            type="search"
+            name="q_similar"
+            id="search_query"
+            autoFocus={false}
+          />
+          <label>Find pages with this any of these words</label>
+          <label className="code">e.g Sauron, The Dark Lord</label>
+        </Form>
+      </div>
+
+      <div className={styles.searchPreferencesSection}>
+        <div className={styles.header}>
           <p>File format</p>
-          <MoreIcon className={styles.moreIcon} />
+          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
         <Form className={styles.fileOptions}>
           <div>
@@ -99,43 +133,24 @@ export const MobileSearchPreferences = () => {
             <label htmlFor="file_docx">.docx</label>
           </div>
         </Form>
-      </div> 
-
-      <div className={styles.searchPreferencesSection}>
-        <div className={styles.header}>
-          <p>Exact words</p>
-          <MoreIcon className={styles.moreIcon} />
-        </div>
-        <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
-          <label>Find pages with this exact word or phrase</label>
-          <label className="code">e.g Lord of the Rings</label>
-        </Form>
-      </div>
-
-      <div className={styles.searchPreferencesSection}>
-        <div className={styles.header}>
-          <p>Similar words</p>
-          <MoreIcon className={styles.moreIcon} />
-        </div>
-        <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
-          <label>Find pages with this any of these words</label>
-          <label className="code">e.g Sauron, The Dark Lord</label>
-        </Form>
       </div>
 
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
           <p>Exclude words</p>
-          <MoreIcon className={styles.moreIcon} />
+          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
         <Form className={styles.importantWords}>
-          <input type="search" name="q" id="search_query" autoFocus={false} />
+          <input
+            type="search"
+            name="q_exclude"
+            id="search_query"
+            autoFocus={false}
+          />
           <label>Find pages with none of these words</label>
           <label className="code">e.g Rings of Power</label>
         </Form>
       </div>
-    </>
+    </div>
   );
 };

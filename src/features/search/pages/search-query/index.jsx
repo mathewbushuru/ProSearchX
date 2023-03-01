@@ -2,14 +2,23 @@
 // After encountering any unhandled errors, automatically redirect here
 
 import { useRef } from "react";
-import { useRouteError, Form, Link, useSubmit } from "react-router-dom";
+import {
+  useRouteError,
+  Form,
+  Link,
+  useSubmit,
+  useNavigate,
+} from "react-router-dom";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
 
 import { MainLayout } from "layouts";
 import { PrimaryButton } from "components/UI";
-import { MobileSearchPreferences } from "features/search/components/SearchPreferences";
+import {
+  MobileSearchPreferences,
+  DesktopSearchPreferences,
+} from "features/search/components/SearchPreferences";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
 
@@ -26,6 +35,12 @@ export const SearchQueryPage = () => {
 
   const searchFormRef = useRef();
   const submit = useSubmit();
+
+  // window.document.addEventListener("keydown", (event) => {
+  //   if (event.code === "Enter") {
+  //     submit(searchFormRef.current);
+  //   }
+  // });
 
   return (
     <MainLayout>
@@ -68,18 +83,6 @@ export const SearchQueryPage = () => {
               <Camera className={styles.cameraIcon} />
             </Form>
 
-            <div className={styles.searchButtons}>
-              <PrimaryButton
-                className={styles.transparentButton}
-                onClick={() => submit(searchFormRef.current)}
-              >
-                Google Search
-              </PrimaryButton>
-              <PrimaryButton className={styles.transparentButton}>
-                <Link to="/doodles">I'm Feeling Lucky</Link>
-              </PrimaryButton>
-            </div>
-
             <div className={styles.otherLanguages}>
               Change Options or{" "}
               <span onClick={() => submit(searchFormRef.current)}>
@@ -90,8 +93,9 @@ export const SearchQueryPage = () => {
           </div>
 
           <div className={styles.nonStickyContent}>
-            <div className={styles.mobileSearchPreferences}>
+            <div className={styles.searchPreferences}>
               {width < 501 && <MobileSearchPreferences />}
+              {width > 500 && <DesktopSearchPreferences />}
             </div>
             <div className={styles.mobileSearchButtons}>
               <PrimaryButton
@@ -104,6 +108,17 @@ export const SearchQueryPage = () => {
                 onClick={() => submit(searchFormRef.current)}
                 className={styles.mobileSearchButton}
               >
+                <Link to="/images">Advanced Search</Link>
+              </PrimaryButton>
+            </div>
+            <div className={styles.searchButtons}>
+              <PrimaryButton
+                className={styles.transparentButton}
+                onClick={() => submit(searchFormRef.current)}
+              >
+                Google Search
+              </PrimaryButton>
+              <PrimaryButton className={styles.transparentButton}>
                 <Link to="/images">Advanced Search</Link>
               </PrimaryButton>
             </div>

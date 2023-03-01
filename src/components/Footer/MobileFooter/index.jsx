@@ -10,11 +10,6 @@ export const MobileFooter = () => {
         <span>Dark theme: off</span>
         <span>Settings</span>
         <span>Privacy</span>
-        <span>Terms</span>
-      </div>
-      <div className={styles.bottomFooterRow}>
-        <span>Advertising</span>
-        <span>Business</span>
         <span>About</span>
       </div>
     </div>
