@@ -2,13 +2,8 @@
 // After encountering any unhandled errors, automatically redirect here
 
 import { useRef } from "react";
-import {
-  useRouteError,
-  Form,
-  Link,
-  useSubmit,
-  useNavigate,
-} from "react-router-dom";
+import { useRouteError, Form, Link, useSubmit } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
@@ -21,6 +16,11 @@ import {
 } from "features/search/components/SearchPreferences";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
+
+import {
+  incrementAction,
+  decrementAction,
+} from "features/search/stores/counter/counterSlice";
 
 import styles from "./SearchQueryPage.module.css";
 
@@ -42,6 +42,10 @@ export const SearchQueryPage = () => {
   //   }
   // });
 
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+  console.log(count);
+
   return (
     <MainLayout>
       <div className={styles.searchQueryPage}>
@@ -61,6 +65,15 @@ export const SearchQueryPage = () => {
                 alt="ProSearch Logo"
                 className={styles.prosearchLogoImage}
               />
+              {/* <div>
+                <button onClick={() => dispatch(incrementAction())}>
+                  Increase
+                </button>
+                <span>{count}</span>
+                <button onClick={() => dispatch(decrementAction())}>
+                  Decrease
+                </button>
+              </div> */}
             </div>
 
             <Form
