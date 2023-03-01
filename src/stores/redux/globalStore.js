@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import counterReducer from "features/search/stores/counterSlice";
 import preferencesHistoryReducer from "features/search/stores/preferencesHistorySlice";
+import uiReducer from "features/search/stores/uiSlice";
 
 const globalStore = configureStore({
   reducer: {
     counter: counterReducer,
     preferencesHistory: preferencesHistoryReducer,
+    ui: uiReducer,
   },
 });
 

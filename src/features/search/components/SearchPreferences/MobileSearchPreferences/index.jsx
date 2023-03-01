@@ -1,4 +1,5 @@
 import { Link, Form } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
 import { FaGlobeAmericas as GlobalIcon } from "react-icons/fa";
 import { FaRedditAlien as RedditIcon } from "react-icons/fa";
@@ -6,9 +7,14 @@ import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
 import { FaTwitter as TwitterIcon } from "react-icons/fa";
 import { IoAddOutline as AddIcon } from "react-icons/io5";
 
+import { changeWebsiteAction } from "features/search/stores/uiSlice";
+
 import styles from "./MobileSearchPreferences.module.css";
 
 export const MobileSearchPreferences = () => {
+  const dispatch = useDispatch();
+  const shownWebsites = useSelector((state) => state.ui.shownWebsites);
+
   return (
     <>
       <div className={styles.searchPreferencesSection}>
@@ -18,17 +24,35 @@ export const MobileSearchPreferences = () => {
         </div>
         <div className={styles.websiteOptions}>
           <div
-            className={`${styles.websiteOptionIconWrapper} ${styles.selectedWebsiteOption}`}
+            className={`${styles.websiteOptionIconWrapper} ${
+              shownWebsites.all ? styles.selectedWebsiteOption : ""
+            }`}
+            onClick={() => dispatch(changeWebsiteAction("all"))}
           >
             <GlobalIcon className={styles.websiteOptionIcon} />
           </div>
-          <div className={styles.websiteOptionIconWrapper}>
+          <div
+            className={`${styles.websiteOptionIconWrapper} ${
+              shownWebsites.reddit ? styles.selectedWebsiteOption : ""
+            }`}
+            onClick={() => dispatch(changeWebsiteAction("reddit"))}
+          >
             <RedditIcon className={styles.websiteOptionIcon} />
           </div>
-          <div className={styles.websiteOptionIconWrapper}>
+          <div
+            className={`${styles.websiteOptionIconWrapper} ${
+              shownWebsites.stackOverflow ? styles.selectedWebsiteOption : ""
+            }`}
+            onClick={() => dispatch(changeWebsiteAction("stackOverflow"))}
+          >
             <StackOverflowIcon className={styles.websiteOptionIcon} />
           </div>
-          <div className={styles.websiteOptionIconWrapper}>
+          <div
+            className={`${styles.websiteOptionIconWrapper} ${
+              shownWebsites.twitter ? styles.selectedWebsiteOption : ""
+            }`}
+            onClick={() => dispatch(changeWebsiteAction("twitter"))}
+          >
             <TwitterIcon className={styles.websiteOptionIcon} />
           </div>
           <div className={styles.websiteOptionIconWrapper}>
@@ -99,7 +123,7 @@ export const MobileSearchPreferences = () => {
             <label htmlFor="file_docx">.docx</label>
           </div>
         </Form>
-      </div> 
+      </div>
 
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
