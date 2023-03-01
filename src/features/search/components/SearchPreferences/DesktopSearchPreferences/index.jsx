@@ -29,11 +29,6 @@ export const DesktopSearchPreferences = () => {
   const similarWords = useSelector((state) => state.ui.similarWords);
   const excludeWords = useSelector((state) => state.ui.excludeWords);
 
-  const state = useSelector((state) => state);
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   return (
     <div className={styles.searchPreferences}>
       <div className={styles.searchPreferencesSection}>

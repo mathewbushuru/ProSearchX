@@ -1,8 +1,9 @@
 // This page is also the global error page
 // After encountering any unhandled errors, automatically redirect here
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useRouteError, Form, Link, useSubmit } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
@@ -15,6 +16,8 @@ import {
 } from "features/search/components/SearchPreferences";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
+
+import { modifyQueryAction } from "features/search/stores/querySlice";
 
 import styles from "./SearchQueryPage.module.css";
 
@@ -29,6 +32,12 @@ export const SearchQueryPage = () => {
 
   const searchFormRef = useRef();
   const submit = useSubmit();
+
+  const dispatch = useDispatch();
+  const queryString = useSelector((state) => state.query.queryString);
+  useEffect(() => {
+    console.log(queryString);
+  }, [queryString]);
 
   return (
     <MainLayout>
@@ -62,6 +71,10 @@ export const SearchQueryPage = () => {
                 name="q"
                 id="search_query"
                 autoFocus={false}
+                defaultValue={queryString}
+                onInput={(e) => {
+                  dispatch(modifyQueryAction(e.target.value));
+                }}
               />
               <SearchIcon
                 className={styles.searchIcon}
