@@ -7,13 +7,18 @@ import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
 import { FaTwitter as TwitterIcon } from "react-icons/fa";
 import { IoAddOutline as AddIcon } from "react-icons/io5";
 
-import { changeWebsiteAction } from "features/search/stores/uiSlice";
+import {
+  changeWebsiteAction,
+  changeDateAction,
+} from "features/search/stores/uiSlice";
 
 import styles from "./MobileSearchPreferences.module.css";
 
 export const MobileSearchPreferences = () => {
   const dispatch = useDispatch();
+
   const shownWebsites = useSelector((state) => state.ui.shownWebsites);
+  const datePublished = useSelector((state) => state.ui.datePublished);
 
   return (
     <>
@@ -66,26 +71,50 @@ export const MobileSearchPreferences = () => {
           <p>Date published</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form className={styles.dateOptions}>
+        <Form
+          className={styles.dateOptions}
+          onClick={(e) => {
+            dispatch(changeDateAction(e.target.value));
+          }}
+        >
           <div>
             <input
               type="radio"
               id="date_anytime"
               name="dateOption"
-              defaultChecked={true}
+              value="anytime"
+              defaultChecked={datePublished.anytime}
             />
             <label htmlFor="date_anytime">Any time</label>
           </div>
           <div>
-            <input type="radio" id="date_year" name="dateOption" />
+            <input
+              type="radio"
+              id="date_year"
+              name="dateOption"
+              value="pastYear"
+              defaultChecked={datePublished.pastYear}
+            />
             <label htmlFor="date_year">Past year</label>
           </div>
           <div>
-            <input type="radio" name="dateOption" id="date_month" />
+            <input
+              type="radio"
+              name="dateOption"
+              id="date_month"
+              value="pastMonth"
+              defaultChecked={datePublished.pastMonth}
+            />
             <label htmlFor="date_month">Past month</label>
           </div>
           <div>
-            <input type="radio" name="dateOption" id="date_week" />
+            <input
+              type="radio"
+              name="dateOption"
+              id="date_week"
+              value="pastWeek"
+              defaultChecked={datePublished.pastWeek}
+            />
             <label htmlFor="date_week">Past week</label>
           </div>
         </Form>

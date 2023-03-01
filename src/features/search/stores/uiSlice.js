@@ -66,17 +66,36 @@ export const uiSlice = createSlice({
       }
     },
     changeDateAction: (state, action) => {
-      switch (action.payload) {
-        case "reddit": {
-          state.shownWebsites.all = false;
-          state.shownWebsites.reddit = true;
-          break;
-        }
-        default: {
-          state.shownWebsites.all = true;
-          state.shownWebsites.reddit = false;
-          state.shownWebsites.stackOverflow = false;
-          state.shownWebsites.twitter = false;
+      if (action.payload) {
+        console.log(action.payload);
+        switch (action.payload) {
+          case "pastYear": {
+            state.datePublished.anytime = false;
+            state.datePublished.pastYear = true;
+            state.datePublished.pastMonth = false;
+            state.datePublished.pastWeek = false;
+            break;
+          }
+          case "pastMonth": {
+            state.datePublished.anytime = false;
+            state.datePublished.pastYear = false;
+            state.datePublished.pastMonth = true;
+            state.datePublished.pastWeek = false;
+            break;
+          }
+          case "pastWeek": {
+            state.datePublished.anytime = false;
+            state.datePublished.pastYear = false;
+            state.datePublished.pastMonth = false;
+            state.datePublished.pastWeek = true;
+            break;
+          }
+          default: {
+            state.datePublished.anytime = true;
+            state.datePublished.pastYear = false;
+            state.datePublished.pastMonth = false;
+            state.datePublished.pastWeek = false;
+          }
         }
       }
     },
