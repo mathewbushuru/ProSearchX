@@ -24,6 +24,9 @@ export const MobileSearchPreferences = () => {
   const shownWebsites = useSelector((state) => state.ui.shownWebsites);
   const datePublished = useSelector((state) => state.ui.datePublished);
   const fileFormat = useSelector((state) => state.ui.fileFormat);
+  const exactWords = useSelector((state) => state.ui.exactWords);
+  const similarWords = useSelector((state) => state.ui.similarWords);
+  const excludeWords = useSelector((state) => state.ui.excludeWords);
 
   return (
     <>
@@ -200,6 +203,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
+            defaultValue={exactWords}
             onInput={(e) => {
               dispatch(changeExactWordsAction(e.target.value));
             }}
@@ -220,6 +224,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
+            defaultValue={similarWords}
             onInput={(e) => {
               dispatch(changeSimilarWordsAction(e.target.value));
             }}
@@ -240,6 +245,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
+            defaultValue={excludeWords}
             onInput={(e) => {
               dispatch(changeExcludeWordsAction(e.target.value));
             }}
