@@ -71,7 +71,8 @@ export const SearchQueryPage = () => {
                 name="q"
                 id="search_query"
                 autoFocus={false}
-                defaultValue={queryString}
+                // defaultValue={queryString}
+                value={queryString}
                 onInput={(e) => {
                   dispatch(modifyQueryAction(e.target.value));
                 }}

@@ -16,6 +16,7 @@ import {
   changeSimilarWordsAction,
   changeExcludeWordsAction,
 } from "features/search/stores/uiSlice";
+import { addWebsiteAction } from "features/search/stores/querySlice";
 
 import styles from "./DesktopSearchPreferences.module.css";
 
@@ -49,7 +50,10 @@ export const DesktopSearchPreferences = () => {
             className={`${styles.websiteOptionIconWrapper} ${
               shownWebsites.reddit ? styles.selectedWebsiteOption : ""
             }`}
-            onClick={() => dispatch(changeWebsiteAction("reddit"))}
+            onClick={() => {
+              dispatch(changeWebsiteAction("reddit"));
+              dispatch(addWebsiteAction("reddit"));
+            }}
           >
             <RedditIcon className={styles.websiteOptionIcon} />
           </div>
@@ -57,7 +61,10 @@ export const DesktopSearchPreferences = () => {
             className={`${styles.websiteOptionIconWrapper} ${
               shownWebsites.stackOverflow ? styles.selectedWebsiteOption : ""
             }`}
-            onClick={() => dispatch(changeWebsiteAction("stackOverflow"))}
+            onClick={() => {
+              dispatch(changeWebsiteAction("stackOverflow"));
+              dispatch(addWebsiteAction("stackOverflow"));
+            }}
           >
             <StackOverflowIcon className={styles.websiteOptionIcon} />
           </div>
@@ -65,7 +72,10 @@ export const DesktopSearchPreferences = () => {
             className={`${styles.websiteOptionIconWrapper} ${
               shownWebsites.twitter ? styles.selectedWebsiteOption : ""
             }`}
-            onClick={() => dispatch(changeWebsiteAction("twitter"))}
+            onClick={() => {
+              dispatch(changeWebsiteAction("twitter"));
+              dispatch(addWebsiteAction("twitter"));
+            }}
           >
             <TwitterIcon className={styles.websiteOptionIcon} />
           </div>
