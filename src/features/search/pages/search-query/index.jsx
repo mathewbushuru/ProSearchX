@@ -1,8 +1,8 @@
 // This page is also the global error page
 // After encountering any unhandled errors, automatically redirect here
 
-import { useRef, useEffect } from "react";
-import { useRouteError, Form, Link, useSubmit } from "react-router-dom";
+import { useEffect } from "react";
+import { useRouteError, Form, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
@@ -16,11 +16,9 @@ import {
 } from "features/search/components/SearchPreferences";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
+import { useQuery } from "features/search/hooks";
 
-import {
-  modifyQueryAction,
-  submitQueryAction,
-} from "features/search/stores/querySlice";
+import { modifyQueryAction } from "features/search/stores/querySlice";
 import { resetOptionsAction } from "features/search/stores/uiSlice";
 
 import styles from "./SearchQueryPage.module.css";
@@ -34,15 +32,14 @@ export const SearchQueryPage = () => {
   const error = useRouteError();
   error && console.error(error);
 
-  const searchFormRef = useRef();
-  const submit = useSubmit();
-
   const dispatch = useDispatch();
   const queryString = useSelector((state) => state.query.queryString);
   const searchString = useSelector((state) => state.query.searchString);
   useEffect(() => {
     console.log(`Search string: ${searchString}`);
   }, [searchString]);
+
+  const [submitQuery] = useQuery();
 
   return (
     <MainLayout>
@@ -65,36 +62,24 @@ export const SearchQueryPage = () => {
               />
             </div>
 
-            <Form
-              className={styles.searchForm}
-              action="/search"
-              method="get"
-              ref={searchFormRef}
-            >
+            <Form className={styles.searchForm} onSubmit={submitQuery}>
               <input
                 type="search"
                 name="q"
                 id="search_query"
                 autoFocus={false}
-                // defaultValue={queryString}
                 value={queryString}
                 onInput={(e) => {
                   dispatch(modifyQueryAction(e.target.value));
                 }}
               />
-              <SearchIcon
-                className={styles.searchIcon}
-                onClick={() => dispatch(submitQueryAction())}
-              />
+              <SearchIcon className={styles.searchIcon} onClick={submitQuery} />
               <Microphone className={styles.microphoneIcon} />
               <Camera className={styles.cameraIcon} />
             </Form>
 
             <div className={styles.otherLanguages}>
-              <span onClick={() => dispatch(submitQueryAction())}>
-                Search Now
-              </span>{" "}
-              or{" "}
+              <span onClick={submitQuery}>Search Now</span> or{" "}
               <span onClick={() => dispatch(resetOptionsAction())}>
                 {" "}
                 Clear Options
@@ -110,12 +95,12 @@ export const SearchQueryPage = () => {
             <div className={styles.mobileSearchButtons}>
               <PrimaryButton
                 className={styles.mobileSearchButton}
-                onClick={() => submit(searchFormRef.current)}
+                onClick={submitQuery}
               >
                 Search
               </PrimaryButton>
               <PrimaryButton
-                onClick={() => submit(searchFormRef.current)}
+                onClick={submitQuery}
                 className={styles.mobileSearchButton}
               >
                 <Link to="/images">Advanced Search</Link>
@@ -124,7 +109,7 @@ export const SearchQueryPage = () => {
             <div className={styles.searchButtons}>
               <PrimaryButton
                 className={styles.transparentButton}
-                onClick={() => submit(searchFormRef.current)}
+                onClick={submitQuery}
               >
                 Google Search
               </PrimaryButton>
