@@ -15,7 +15,6 @@ import {
   changeSimilarWordsAction,
   changeExcludeWordsAction,
 } from "features/search/stores/uiSlice";
-import { addWebsiteAction } from "features/search/stores/querySlice";
 
 import styles from "./MobileSearchPreferences.module.css";
 
@@ -51,7 +50,6 @@ export const MobileSearchPreferences = () => {
             }`}
             onClick={() => {
               dispatch(changeWebsiteAction("reddit"));
-              dispatch(addWebsiteAction("reddit"));
             }}
           >
             <RedditIcon className={styles.websiteOptionIcon} />
@@ -62,7 +60,6 @@ export const MobileSearchPreferences = () => {
             }`}
             onClick={() => {
               dispatch(changeWebsiteAction("stackOverflow"));
-              dispatch(addWebsiteAction("stackOverflow"));
             }}
           >
             <StackOverflowIcon className={styles.websiteOptionIcon} />
@@ -73,7 +70,6 @@ export const MobileSearchPreferences = () => {
             }`}
             onClick={() => {
               dispatch(changeWebsiteAction("twitter"));
-              dispatch(addWebsiteAction("twitter"));
             }}
           >
             <TwitterIcon className={styles.websiteOptionIcon} />
