@@ -7,6 +7,8 @@ import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
 import { FaTwitter as TwitterIcon } from "react-icons/fa";
 import { IoAddOutline as AddIcon } from "react-icons/io5";
 
+import { useQuery } from "features/search/hooks";
+
 import {
   changeWebsiteAction,
   changeDateAction,
@@ -27,6 +29,8 @@ export const MobileSearchPreferences = () => {
   const exactWords = useSelector((state) => state.ui.exactWords);
   const similarWords = useSelector((state) => state.ui.similarWords);
   const excludeWords = useSelector((state) => state.ui.excludeWords);
+
+  const [submitQuery] = useQuery();
 
   return (
     <>
@@ -230,7 +234,7 @@ export const MobileSearchPreferences = () => {
           <p>Exact words</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q"
@@ -251,7 +255,7 @@ export const MobileSearchPreferences = () => {
           <p>Similar words</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q"
@@ -272,7 +276,7 @@ export const MobileSearchPreferences = () => {
           <p>Exclude words</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q"

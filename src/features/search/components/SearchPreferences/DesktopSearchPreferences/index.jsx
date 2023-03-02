@@ -8,6 +8,8 @@ import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";
 import { FaTwitter as TwitterIcon } from "react-icons/fa";
 import { IoAddOutline as AddIcon } from "react-icons/io5";
 
+import { useQuery } from "features/search/hooks";
+
 import {
   changeWebsiteAction,
   changeDateAction,
@@ -28,6 +30,8 @@ export const DesktopSearchPreferences = () => {
   const exactWords = useSelector((state) => state.ui.exactWords);
   const similarWords = useSelector((state) => state.ui.similarWords);
   const excludeWords = useSelector((state) => state.ui.excludeWords);
+
+  const [submitQuery] = useQuery();
 
   return (
     <div className={styles.searchPreferences}>
@@ -84,9 +88,8 @@ export const DesktopSearchPreferences = () => {
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
           <p>Exact words</p>
-          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q_exact"
@@ -106,9 +109,7 @@ export const DesktopSearchPreferences = () => {
         <div className={styles.header}>
           <p>Date published</p>
         </div>
-        <Form
-          className={styles.dateOptions}
-        >
+        <Form className={styles.dateOptions}>
           <div>
             <input
               type="radio"
@@ -167,9 +168,8 @@ export const DesktopSearchPreferences = () => {
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
           <p>Similar words</p>
-          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q_similar"
@@ -190,9 +190,7 @@ export const DesktopSearchPreferences = () => {
           <p>File format</p>
           {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form
-          className={styles.fileOptions}
-        >
+        <Form className={styles.fileOptions}>
           <div>
             <input
               type="radio"
@@ -264,9 +262,8 @@ export const DesktopSearchPreferences = () => {
       <div className={styles.searchPreferencesSection}>
         <div className={styles.header}>
           <p>Exclude words</p>
-          {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form className={styles.importantWords}>
+        <Form className={styles.importantWords} onSubmit={submitQuery}>
           <input
             type="search"
             name="q_exclude"
