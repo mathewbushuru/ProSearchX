@@ -109,7 +109,7 @@ export const DesktopSearchPreferences = () => {
         <div className={styles.header}>
           <p>Date published</p>
         </div>
-        <Form className={styles.dateOptions}>
+        <Form className={styles.dateOptions} onSubmit={submitQuery}>
           <div>
             <input
               type="radio"
@@ -190,7 +190,7 @@ export const DesktopSearchPreferences = () => {
           <p>File format</p>
           {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form className={styles.fileOptions}>
+        <Form className={styles.fileOptions} onSubmit={submitQuery}>
           <div>
             <input
               type="radio"

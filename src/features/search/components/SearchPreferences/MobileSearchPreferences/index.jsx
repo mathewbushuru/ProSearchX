@@ -91,9 +91,7 @@ export const MobileSearchPreferences = () => {
         </div>
         <Form
           className={styles.dateOptions}
-          onClick={(e) => {
-            dispatch(changeDateAction(e.target.value));
-          }}
+          onSubmit={submitQuery}
         >
           <div>
             <input
@@ -157,9 +155,7 @@ export const MobileSearchPreferences = () => {
         </div>
         <Form
           className={styles.fileOptions}
-          onClick={(e) => {
-            dispatch(changeFileAction(e.target.value));
-          }}
+          onSubmit={submitQuery}
         >
           <div>
             <input
