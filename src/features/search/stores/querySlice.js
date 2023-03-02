@@ -11,8 +11,8 @@ export const querySlice = createSlice({
       state.queryString = action.payload;
     },
     submitQueryAction: (state) => {
-      console.log("Submitting query");
       state.searchString = state.queryString;
+      console.log("Submitting query");
     },
   },
 });

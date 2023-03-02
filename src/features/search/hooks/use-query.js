@@ -10,6 +10,9 @@ export const useQuery = () => {
 
   const submitQuery = () => {
     dispatch(submitQueryAction());
+    console.log(`query string: ${queryString}`);
+    // window.location.href = `https://www.google.com/search?q=${queryString}`;
+    window.open(`https://www.google.com/search?q=${queryString}`, "_blank");
   };
 
   return [submitQuery];
