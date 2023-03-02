@@ -67,6 +67,7 @@
   margin-bottom: 20px;
 }
 .otherLanguages span {
+  margin: 0 5px;
   color: var(--googleBlue);
   cursor: pointer;
 }
@@ -139,7 +140,10 @@
     background-color: var(--googleWhite3);
   }
   .otherLanguages {
-    display: none;
+    /* display: none; */
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 14px;
   }
   .stickySearchbar {
     position: static;

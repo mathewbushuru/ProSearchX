@@ -86,11 +86,10 @@ export const SearchQueryPage = () => {
             </Form>
 
             <div className={styles.otherLanguages}>
-              Change Options or{" "}
               <span onClick={() => submit(searchFormRef.current)}>
-                {" "}
                 Search Now
-              </span>
+              </span>{" "}
+              or <span> Clear Options</span>
             </div>
           </div>
 
