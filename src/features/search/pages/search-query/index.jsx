@@ -17,7 +17,11 @@ import {
 
 import { useWindowDimensions } from "hooks/ui_hooks";
 
-import { modifyQueryAction } from "features/search/stores/querySlice";
+import {
+  modifyQueryAction,
+  submitQueryAction,
+} from "features/search/stores/querySlice";
+import { resetOptionsAction } from "features/search/stores/uiSlice";
 
 import styles from "./SearchQueryPage.module.css";
 
@@ -35,9 +39,10 @@ export const SearchQueryPage = () => {
 
   const dispatch = useDispatch();
   const queryString = useSelector((state) => state.query.queryString);
+  const searchString = useSelector((state) => state.query.searchString);
   useEffect(() => {
-    console.log(queryString);
-  }, [queryString]);
+    console.log(`Search string: ${searchString}`);
+  }, [searchString]);
 
   return (
     <MainLayout>
@@ -79,17 +84,21 @@ export const SearchQueryPage = () => {
               />
               <SearchIcon
                 className={styles.searchIcon}
-                onClick={() => submit(searchFormRef.current)}
+                onClick={() => dispatch(submitQueryAction())}
               />
               <Microphone className={styles.microphoneIcon} />
               <Camera className={styles.cameraIcon} />
             </Form>
 
             <div className={styles.otherLanguages}>
-              <span onClick={() => submit(searchFormRef.current)}>
+              <span onClick={() => dispatch(submitQueryAction())}>
                 Search Now
               </span>{" "}
-              or <span> Clear Options</span>
+              or{" "}
+              <span onClick={() => dispatch(resetOptionsAction())}>
+                {" "}
+                Clear Options
+              </span>
             </div>
           </div>
 

@@ -1,32 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const defaultShownWebsites = {
+  all: true,
+  reddit: false,
+  stackOverflow: false,
+  twitter: false,
+};
+const defaultDatePublished = {
+  anytime: true,
+  pastYear: false,
+  pastMonth: false,
+  pastWeek: false,
+};
+const defaultFileFormat = {
+  anyFormat: true,
+  pdf: false,
+  zip: false,
+  pptx: false,
+  docx: false,
+};
+
 export const uiSlice = createSlice({
   name: "ui",
   initialState: {
-    shownWebsites: {
-      all: true,
-      reddit: false,
-      stackOverflow: false,
-      twitter: false,
-    },
-    datePublished: {
-      anytime: true,
-      pastYear: false,
-      pastMonth: false,
-      pastWeek: false,
-    },
-    fileFormat: {
-      anyFormat: true,
-      pdf: false,
-      zip: false,
-      pptx: false,
-      docx: false,
-    },
+    shownWebsites: defaultShownWebsites,
+    datePublished: defaultDatePublished,
+    fileFormat: defaultFileFormat,
     exactWords: "",
     similarWords: "",
     excludeWords: "",
   },
   reducers: {
+    resetOptionsAction: (state) => {
+      state.shownWebsites = defaultShownWebsites;
+      state.datePublished = defaultDatePublished;
+      state.fileFormat = defaultFileFormat;
+      state.exactWords = "";
+      state.similarWords = "";
+      state.excludeWords = "";
+    },
     changeWebsiteAction: (state, action) => {
       switch (action.payload) {
         case "reddit": {
@@ -156,6 +168,7 @@ export const uiSlice = createSlice({
 });
 
 export const {
+  resetOptionsAction,
   changeWebsiteAction,
   changeDateAction,
   changeFileAction,

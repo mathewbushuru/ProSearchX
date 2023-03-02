@@ -97,7 +97,10 @@ export const MobileSearchPreferences = () => {
               id="date_anytime"
               name="dateOption"
               value="anytime"
-              defaultChecked={datePublished.anytime}
+              checked={datePublished.anytime}
+              onChange={(e) => {
+                dispatch(changeDateAction(e.target.value));
+              }}
             />
             <label htmlFor="date_anytime">Any time</label>
           </div>
@@ -107,7 +110,10 @@ export const MobileSearchPreferences = () => {
               id="date_year"
               name="dateOption"
               value="pastYear"
-              defaultChecked={datePublished.pastYear}
+              checked={datePublished.pastYear}
+              onChange={(e) => {
+                dispatch(changeDateAction(e.target.value));
+              }}
             />
             <label htmlFor="date_year">Past year</label>
           </div>
@@ -117,7 +123,10 @@ export const MobileSearchPreferences = () => {
               name="dateOption"
               id="date_month"
               value="pastMonth"
-              defaultChecked={datePublished.pastMonth}
+              checked={datePublished.pastMonth}
+              onChange={(e) => {
+                dispatch(changeDateAction(e.target.value));
+              }}
             />
             <label htmlFor="date_month">Past month</label>
           </div>
@@ -127,7 +136,10 @@ export const MobileSearchPreferences = () => {
               name="dateOption"
               id="date_week"
               value="pastWeek"
-              defaultChecked={datePublished.pastWeek}
+              checked={datePublished.pastWeek}
+              onChange={(e) => {
+                dispatch(changeDateAction(e.target.value));
+              }}
             />
             <label htmlFor="date_week">Past week</label>
           </div>
@@ -151,7 +163,10 @@ export const MobileSearchPreferences = () => {
               id="file_anytime"
               name="fileOption"
               value="anyFormat"
-              defaultChecked={fileFormat.anyFormat}
+              checked={fileFormat.anyFormat}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
             />
             <label htmlFor="file_anytime">Any format</label>
           </div>
@@ -161,7 +176,10 @@ export const MobileSearchPreferences = () => {
               id="file_pdf"
               name="fileOption"
               value="pdf"
-              defaultChecked={fileFormat.pdf}
+              checked={fileFormat.pdf}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
             />
             <label htmlFor="file_pdf">.pdf</label>
           </div>
@@ -171,7 +189,10 @@ export const MobileSearchPreferences = () => {
               name="fileOption"
               id="file_zip"
               value="zip"
-              defaultChecked={fileFormat.zip}
+              checked={fileFormat.zip}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
             />
             <label htmlFor="file_zip">.zip</label>
           </div>
@@ -181,7 +202,10 @@ export const MobileSearchPreferences = () => {
               name="fileOption"
               id="file_pptx"
               value="pptx"
-              defaultChecked={fileFormat.pptx}
+              checked={fileFormat.pptx}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
             />
             <label htmlFor="file_pptx">.pptx</label>
           </div>
@@ -191,7 +215,10 @@ export const MobileSearchPreferences = () => {
               name="fileOption"
               id="file_docx"
               value="docx"
-              defaultChecked={fileFormat.docx}
+              checked={fileFormat.docx}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
             />
             <label htmlFor="file_docx">.docx</label>
           </div>
@@ -209,7 +236,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
-            defaultValue={exactWords}
+            value={exactWords}
             onInput={(e) => {
               dispatch(changeExactWordsAction(e.target.value));
             }}
@@ -230,7 +257,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
-            defaultValue={similarWords}
+            value={similarWords}
             onInput={(e) => {
               dispatch(changeSimilarWordsAction(e.target.value));
             }}
@@ -251,7 +278,7 @@ export const MobileSearchPreferences = () => {
             name="q"
             id="search_query"
             autoFocus={false}
-            defaultValue={excludeWords}
+            value={excludeWords}
             onInput={(e) => {
               dispatch(changeExcludeWordsAction(e.target.value));
             }}
