@@ -14,8 +14,10 @@ export const useQuery = () => {
 
     const searchString = `https://www.google.com/search?q=${queryString}`;
 
-    window.location.href = searchString;
-    // window.open(searchString, "_blank");
+    if (queryString) {
+      window.location.href = searchString;
+    //   window.open(searchString, "_blank");
+    }
   };
 
   return [submitQuery];

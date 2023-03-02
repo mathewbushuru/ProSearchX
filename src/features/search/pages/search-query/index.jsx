@@ -38,6 +38,16 @@ export const SearchQueryPage = () => {
 
   const [submitQuery] = useQuery();
 
+  // useEffect(() => {
+  //   window.document
+  //     .querySelector("body")
+  //     .addEventListener("keydown", (event) => {
+  //       if (event.code === "Enter") {
+  //         submitQuery();
+  //       }
+  //     });
+  // }, [submitQuery]);
+
   return (
     <MainLayout>
       <div className={styles.searchQueryPage}>
