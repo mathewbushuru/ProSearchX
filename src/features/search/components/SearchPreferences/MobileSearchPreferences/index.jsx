@@ -284,7 +284,7 @@ export const MobileSearchPreferences = () => {
             }}
           />
           <label>Find pages with none of these words</label>
-          <label className="code">e.g Rings of Power</label>
+          <label className="code">e.g Rings of Power, ROP</label>
         </Form>
       </div>
     </>

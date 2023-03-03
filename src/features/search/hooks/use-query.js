@@ -26,9 +26,17 @@ export const useQuery = () => {
     }
 
     //similar words
-    console.log(similarWords.split(",").join(" OR"));
     if (similarWords) {
       searchString += ` ${similarWords.split(",").join(" OR ")}`;
+    }
+
+    //exclude words
+    console.log(excludeWords.split(","));
+    if (excludeWords) {
+      let excludeWordsArr = excludeWords.split(",");
+      for (let word of excludeWordsArr) {
+        searchString += ` -"${word}"`;
+      }
     }
 
     // websites
