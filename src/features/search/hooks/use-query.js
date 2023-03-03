@@ -20,6 +20,7 @@ export const useQuery = () => {
 
     let searchString = queryString;
 
+    // websites
     for (const website in shownWebsites) {
       if (shownWebsites[website] && website !== "all") {
         searchString += ` site:${website}.com OR`;
@@ -30,9 +31,33 @@ export const useQuery = () => {
       searchString = queryString;
     }
 
+    // file format
     for (const format in fileFormat) {
       if (fileFormat[format] && format !== "anyFormat") {
         searchString += ` filetype:${format}`;
+      }
+    }
+
+    // date range
+    const date = new Date();
+    const todayDate = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+    let searchDate;
+    for (const datePeriod in datePublished) {
+      if (datePublished[datePeriod] && datePeriod !== "anytime") {
+        if (datePeriod === "pastYear") {
+          searchDate = `${date.getFullYear() - 1}-${
+            date.getMonth() + 1
+          }-${date.getDate()}`;
+          searchString += ` after:${searchDate}`;
+        } else if (datePeriod === "pastMonth") {
+          date.setMonth(date.getMonth() - 1);
+          searchDate = `${date.getFullYear()}-${
+            date.getMonth() + 1
+          }-${date.getDate()}`;
+          searchString += ` after:${searchDate}`;
+        }
       }
     }
 
