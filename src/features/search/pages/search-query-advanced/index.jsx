@@ -24,6 +24,7 @@ import styles from "./SearchQueryAdvancedPage.module.css";
 
 import googleLogo from "assets/google-logo.png";
 import logo from "assets/logo5.png";
+import { useEffect } from "react";
 
 const searchTypeOptions = [
   "All",
@@ -50,6 +51,11 @@ export const SearchQueryAdvancedPage = () => {
   const newTab = useSelector((state) => state.settings.newTab);
 
   const [submitQuery] = useQuery();
+  useEffect(() => {
+    if (width > 501) {
+      navigate("/");
+    }
+  }, [width]);
 
   return (
     <>
@@ -78,6 +84,7 @@ export const SearchQueryAdvancedPage = () => {
                   className={styles.prosearchLogoImage}
                 />
               </div>
+              <SearchForm className={styles.desktopSearchForm} />
               <input
                 type="checkbox"
                 name="rememberOptions"
@@ -88,23 +95,7 @@ export const SearchQueryAdvancedPage = () => {
               />
             </div>
 
-            <SearchForm />
-
-            {/* <Form className={styles.searchForm} onSubmit={submitQuery}>
-              <input
-                type="search"
-                name="q"
-                id="search_query"
-                autoFocus={false}
-                value={queryString}
-                onInput={(e) => {
-                  dispatch(modifyQueryAction(e.target.value));
-                }}
-              />
-              <SearchIcon className={styles.searchIcon} onClick={submitQuery} />
-              <Microphone className={styles.microphoneIcon} />
-              <Camera className={styles.cameraIcon} />
-            </Form> */}
+            <SearchForm className={styles.mobileSearchForm} />
 
             <div className={styles.otherLanguages}>
               <span onClick={submitQuery}>Search Now</span> or{" "}

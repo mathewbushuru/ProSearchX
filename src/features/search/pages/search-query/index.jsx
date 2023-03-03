@@ -104,9 +104,9 @@ export const SearchQueryPage = () => {
               >
                 Google Search
               </PrimaryButton>
-              <PrimaryButton className={styles.transparentButton}>
+              {/* <PrimaryButton className={styles.transparentButton}>
                 <Link to="/advanced">Advanced Search</Link>
-              </PrimaryButton>
+              </PrimaryButton> */}
             </div>
           </div>
         </div>

@@ -33,6 +33,9 @@
   /* width: 180px; */
   width: 115px;
 }
+.desktopSearchForm{
+  display: none;
+}
 .main {
   width: 100%;
 }
@@ -46,33 +49,6 @@
 }
 .nonStickyContent {
   padding-top: 185px;
-}
-.searchForm {
-  padding: 12px 24px;
-  margin-bottom: 8px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.searchForm input {
-  color: var(--googleBlack);
-  padding: 10px 12px;
-  padding-left: 40px;
-  border: 1px solid var(--googleGrey2);
-  border-radius: 20px;
-  outline: none;
-}
-.searchIcon {
-  color: var(--googleGrey);
-  font-size: 22px;
-  position: absolute;
-  top: 35%;
-  left: 30px;
-  cursor: pointer;
-}
-.microphoneIcon,
-.cameraIcon {
-  display: none;
 }
 .searchButtons {
   display: none;
@@ -175,41 +151,35 @@ input.checkbox:checked::before {
 }
 
 @media (min-width: 501px) {
+  .nav{
+    width: 100%;
+  }
+  .navIcon{
+    display: none;
+  }
   .logoWrapper {
-    margin-top: 36px;
-    margin-bottom: 0;
+    /* margin-top: 36px; */
+    /* margin-bottom: 0; */
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 8px;
   }
   .googleLogoImage {
-    margin: 8px;
-    width: 160px;
+    /* width: 160px; */
+    width: 90px;
   }
   .prosearchLogoImage {
-    width: 180px;
+    /* width: 180px; */
+    width: 115px;
   }
-  .searchForm {
-    margin: 0 auto;
-    width: 50%;
+  .mobileSearchForm{
+    display: none;
   }
-  .searchForm input {
-    padding-right: 75px;
-  }
-  .microphoneIcon,
-  .cameraIcon {
-    display: inline-block;
-    color: var(--googleGrey);
-    font-size: 22px;
-    position: absolute;
-    top: 35%;
-  }
-  .microphoneIcon {
-    right: 35px;
-  }
-  .cameraIcon {
-    right: 70px;
+  .desktopSearchForm{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   .searchButtons {
     margin: 11px 0;
