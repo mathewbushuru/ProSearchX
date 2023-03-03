@@ -12,6 +12,8 @@ export const ComingSoon = ({ item }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
         }}
       >
         <p>{item} coming soon</p>

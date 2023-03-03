@@ -25,12 +25,16 @@ This project follows the structure of my react-starter-kit which is documented a
 - Only search specific websites.
 - Only return results from a specific timeframe
 - Choose file format of expected results.
-- exclude false positives
+- exclude false positives from results
+- Search for synonyms
+- Find searches with exact words or phrases 
+- Advanced image search (TBD)
+- Dark theme (TBD)
+- Advanced Search to further filter results by region, language of content, search only websites ending with particular TLDs, available content license,location where search results occur in found websites, etc (TBD)
 - A mobile-first design approach and a fully responsive implementation. As shown in the photos below, the app is styled to be usable at different screen sizes.
 
 ##### Progress Images
 
 ![mobile](docs/progress/mobile_home.jpg) 
-![desktop](docs/progress/desktop_home1.jpg) 
-![desktop](docs/progress/desktop_home2.jpg) 
+![desktop](docs/progress/desktop_home.jpg)
 

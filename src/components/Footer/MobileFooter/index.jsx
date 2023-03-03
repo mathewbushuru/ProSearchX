@@ -8,9 +8,33 @@ export const MobileFooter = () => {
       <div className={styles.footerCountry}>Canada</div>
       <div className={styles.topFooterRow}>
         <span>Dark theme: off</span>
-        <span>Settings</span>
-        <span>Privacy</span>
-        <span>About</span>
+        <span>
+          <a
+            href="https://github.com/mathewbushuru/ProSearchX"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Settings
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://github.com/mathewbushuru/ProSearchX"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Privacy
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://github.com/mathewbushuru/ProSearchX"
+            target="_blank"
+            rel="noreferrer"
+          >
+            About
+          </a>
+        </span>
       </div>
     </div>
   );
