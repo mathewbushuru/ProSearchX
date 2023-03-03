@@ -31,6 +31,8 @@ This project follows the structure of my react-starter-kit which is documented a
 - Advanced image search (TBD)
 - Dark theme (TBD)
 - Advanced Search to further filter results by region, language of content, search only websites ending with particular TLDs, available content license,location where search results occur in found websites, etc (TBD)
+- Add option to filter search results by sections: news, images, shopping, books, flights, etc. (TBD)
+- Enable users to edit each search parameter, e.g allow editing and adding websites to search, timeframes shown in UI, etc. (TBD)
 - A mobile-first design approach and a fully responsive implementation. As shown in the photos below, the app is styled to be usable at different screen sizes.
 
 ##### Progress Images
