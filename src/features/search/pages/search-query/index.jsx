@@ -1,7 +1,3 @@
-// This page is also the global error page
-// After encountering any unhandled errors, automatically redirect here
-
-import { useEffect } from "react";
 import { useRouteError, Form, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
@@ -36,16 +32,6 @@ export const SearchQueryPage = () => {
   const queryString = useSelector((state) => state.query.queryString);
 
   const [submitQuery] = useQuery();
-
-  // useEffect(() => {
-  //   window.document
-  //     .querySelector("body")
-  //     .addEventListener("keydown", (event) => {
-  //       if (event.code === "Enter") {
-  //         submitQuery();
-  //       }
-  //     });
-  // }, [submitQuery]);
 
   return (
     <MainLayout>

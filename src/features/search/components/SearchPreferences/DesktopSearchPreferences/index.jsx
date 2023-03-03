@@ -52,6 +52,7 @@ export const DesktopSearchPreferences = () => {
               shownWebsites.all ? styles.selectedWebsiteOption : ""
             }`}
             onClick={() => dispatch(changeWebsiteAction("all"))}
+            onDoubleClick={submitQuery}
           >
             <GlobalIcon className={styles.websiteOptionIcon} />
           </div>

@@ -8,8 +8,6 @@ export const querySlice = createSlice({
   reducers: {
     modifyQueryAction: (state, action) => {
       state.queryString = action.payload;
-      // console.log("modifying query string")
-      // console.log(state.queryString)
     },
     submitQueryAction: (state) => {
       console.log("Submitting query");
