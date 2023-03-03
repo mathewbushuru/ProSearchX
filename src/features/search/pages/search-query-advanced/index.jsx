@@ -17,12 +17,12 @@ import { useQuery } from "features/search/hooks";
 import { modifyQueryAction } from "features/search/stores/querySlice";
 import { resetOptionsAction } from "features/search/stores/uiSlice";
 
-import styles from "./SearchQueryPage.module.css";
+import styles from "./SearchQueryAdvancedPage.module.css";
 
 import googleLogo from "assets/google-logo.png";
 import logo from "assets/logo5.png";
 
-export const SearchQueryPage = () => {
+export const SearchQueryAdvancedPage = () => {
   const { width } = useWindowDimensions();
 
   const error = useRouteError();
@@ -91,11 +91,12 @@ export const SearchQueryPage = () => {
               >
                 Search
               </PrimaryButton>
-              <PrimaryButton
+              {/* <PrimaryButton
+                onClick={submitQuery}
                 className={styles.mobileSearchButton}
               >
-                <Link to="/advanced">Advanced Search</Link>
-              </PrimaryButton>
+                <Link to="/images">Advanced Search</Link>
+              </PrimaryButton> */}
             </div>
             <div className={styles.searchButtons}>
               <PrimaryButton
@@ -104,9 +105,9 @@ export const SearchQueryPage = () => {
               >
                 Google Search
               </PrimaryButton>
-              <PrimaryButton className={styles.transparentButton}>
-                <Link to="/advanced">Advanced Search</Link>
-              </PrimaryButton>
+              {/* <PrimaryButton className={styles.transparentButton}>
+                <Link to="/images">Advanced Search</Link>
+              </PrimaryButton> */}
             </div>
           </div>
         </div>

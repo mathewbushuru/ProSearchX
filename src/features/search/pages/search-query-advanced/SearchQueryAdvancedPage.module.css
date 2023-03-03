@@ -1,0 +1,165 @@
+.searchQueryPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logoWrapper {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.googleLogoImage {
+  width: 130px;
+}
+.prosearchLogoImage {
+  width: 180px;
+}
+.main {
+  width: 100%;
+}
+.stickySearchbar {
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.08);
+  background-color: var(--googleWhite);
+  position: fixed;
+  top: 65px;
+}
+.nonStickyContent {
+  padding-top: 285px;
+}
+.searchForm {
+  padding: 12px 24px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.searchForm input {
+  color: var(--googleBlack);
+  padding: 10px 12px;
+  padding-left: 40px;
+  border: 1px solid var(--googleGrey2);
+  border-radius: 20px;
+  outline: none;
+}
+.searchIcon {
+  color: var(--googleGrey);
+  font-size: 22px;
+  position: absolute;
+  top: 35%;
+  left: 30px;
+  cursor: pointer;
+}
+.microphoneIcon,
+.cameraIcon {
+  display: none;
+}
+.searchButtons {
+  display: none;
+}
+.otherLanguages {
+  color: var(--googleBlack2);
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.otherLanguages span {
+  margin: 0 5px;
+  color: var(--googleBlue);
+  cursor: pointer;
+}
+.searchPreferences {
+  margin-bottom: 6px;
+}
+.mobileSearchButtons {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.mobileSearchButton {
+  font-size: 14px;
+}
+
+@media (min-width: 501px) {
+  .logoWrapper {
+    margin-top: 36px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .googleLogoImage {
+    margin: 8px;
+    width: 160px;
+  }
+  .prosearchLogoImage {
+    width: 180px;
+  }
+  .searchForm {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .searchForm input {
+    padding-right: 75px;
+  }
+  .microphoneIcon,
+  .cameraIcon {
+    display: inline-block;
+    color: var(--googleGrey);
+    font-size: 22px;
+    position: absolute;
+    top: 35%;
+  }
+  .microphoneIcon {
+    right: 35px;
+  }
+  .cameraIcon {
+    right: 70px;
+  }
+  .searchButtons {
+    margin: 11px 0;
+    display: block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .transparentButton {
+    background-color: var(--googleWhite3);
+    color: var(--googleBlack2);
+    font-size: 14px;
+  }
+  .transparentButton:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: var(--googleWhite3);
+  }
+  .otherLanguages {
+    /* display: none; */
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  .stickySearchbar {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+  }
+  .nonStickyContent {
+    padding-top: 0px;
+  }
+  .mobileSearchButtons {
+    display: none;
+  }
+  .searchPreferences {
+    margin: 0 auto;
+    width: 70%;
+  }
+}
