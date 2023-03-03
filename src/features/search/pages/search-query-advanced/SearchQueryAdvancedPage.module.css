@@ -4,18 +4,34 @@
   flex-direction: column;
   align-items: center;
 }
-.logoWrapper {
-  margin-top: 8px;
-  margin-bottom: 8px;
+.nav {
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
+.navIcon {
+  color: var(--googleGrey);
+  font-size: 24px;
+}
+.logoWrapper {
+  /* margin-top: 12px; */
+  /* margin-bottom: 12px; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 .googleLogoImage {
-  width: 130px;
+  /* width: 130px; */
+  width: 90px;
 }
 .prosearchLogoImage {
-  width: 180px;
+  /* width: 180px; */
+  width: 115px;
 }
 .main {
   width: 100%;
@@ -25,10 +41,11 @@
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.08);
   background-color: var(--googleWhite);
   position: fixed;
-  top: 65px;
+  /* top: 65px; */
+  top: 0;
 }
 .nonStickyContent {
-  padding-top: 285px;
+  padding-top: 185px;
 }
 .searchForm {
   padding: 12px 24px;
@@ -64,7 +81,7 @@
   color: var(--googleBlack2);
   text-align: center;
   font-size: 13px;
-  margin-bottom: 20px;
+  padding-bottom: 6px;
 }
 .otherLanguages span {
   margin: 0 5px;
@@ -83,6 +100,78 @@
 }
 .mobileSearchButton {
   font-size: 14px;
+}
+
+.checkbox,
+.checkboxLabel {
+  margin: 0;
+}
+.checkbox {
+  /* margin-right: 20px; */
+}
+/* remove default styling of checkbox and create outer toggle area  */
+input.checkbox {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid var(--googleGrey);
+  background: #eee;
+  transition: all 0.15s;
+}
+/* style ::before to look like a toggle switch  */
+input.checkbox::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 9px;
+  background-color: var(--googleGrey);
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  transition: all 0.4s;
+}
+/* change  outer bg color and move toggle switch when checkbox is checked  */
+input.checkbox:checked {
+  background-color: var(--googleYellow);
+  transition: all 0.4s;
+}
+input.checkbox:checked::before {
+  left: 50%;
+  transition: all 0.4s;
+}
+
+.searchTypeContainer {
+  height: 36px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.08);
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  display: flex;
+  align-items: center;
+}
+.searchTypeContainer::-webkit-scrollbar {
+  display: none; /*Hide scrollbar Chrome,Safari,Opera*/
+}
+.searchType {
+  color: var(--googleGrey);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  /* padding: 8px 12px; */
+  padding: 4px 3px;
+  margin: 4px 9px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.searchType:first-of-type {
+  color: var(--googleGrey3);
+  border-bottom: 2px solid var(--googleGrey3);
 }
 
 @media (min-width: 501px) {

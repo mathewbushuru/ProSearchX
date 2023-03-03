@@ -1,8 +1,9 @@
-import { useRouteError, Form, Link } from "react-router-dom";
+import { useRouteError, useNavigate, Form, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as Microphone } from "react-icons/bi";
 import { BsCamera as Camera } from "react-icons/bs";
+import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
 
 import { MainLayout } from "layouts";
 import { PrimaryButton } from "components/UI";
@@ -10,17 +11,31 @@ import {
   MobileSearchPreferences,
   DesktopSearchPreferences,
 } from "features/search/components/SearchPreferences";
+import { SearchForm } from "features/search/components";
 
 import { useWindowDimensions } from "hooks/ui_hooks";
 import { useQuery } from "features/search/hooks";
 
 import { modifyQueryAction } from "features/search/stores/querySlice";
 import { resetOptionsAction } from "features/search/stores/uiSlice";
+import { toggleNewTabAction } from "features/search/stores/settingsSlice";
 
 import styles from "./SearchQueryAdvancedPage.module.css";
 
 import googleLogo from "assets/google-logo.png";
 import logo from "assets/logo5.png";
+
+const searchTypeOptions = [
+  "All",
+  "News",
+  "Maps",
+  "Images",
+  "Videos",
+  "Shopping",
+  "Books",
+  "Flights",
+  "Finance",
+];
 
 export const SearchQueryAdvancedPage = () => {
   const { width } = useWindowDimensions();
@@ -28,33 +43,54 @@ export const SearchQueryAdvancedPage = () => {
   const error = useRouteError();
   error && console.error(error);
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const queryString = useSelector((state) => state.query.queryString);
+  const newTab = useSelector((state) => state.settings.newTab);
 
   const [submitQuery] = useQuery();
 
   return (
-    <MainLayout>
+    <>
       <div className={styles.searchQueryPage}>
         <div className={styles.main}>
           <div className={styles.stickySearchbar}>
             {error && (
               <div>Unexpected error: {error.statusText || error.message}</div>
             )}
-            <div className={styles.logoWrapper}>
-              <img
-                src={googleLogo}
-                alt="Google Logo"
-                className={styles.googleLogoImage}
-              />
-              <img
-                src={logo}
-                alt="ProSearch Logo"
-                className={styles.prosearchLogoImage}
+            <div className={styles.nav}>
+              <Hamburger className={`${styles.navIcon}`} />
+              <div
+                className={styles.logoWrapper}
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                <img
+                  src={googleLogo}
+                  alt="Google Logo"
+                  className={styles.googleLogoImage}
+                />
+                <img
+                  src={logo}
+                  alt="ProSearch Logo"
+                  className={styles.prosearchLogoImage}
+                />
+              </div>
+              <input
+                type="checkbox"
+                name="rememberOptions"
+                id="rememberOptions"
+                checked={newTab}
+                className={`${styles.checkbox}`}
+                onChange={() => dispatch(toggleNewTabAction())}
               />
             </div>
 
-            <Form className={styles.searchForm} onSubmit={submitQuery}>
+            <SearchForm />
+
+            {/* <Form className={styles.searchForm} onSubmit={submitQuery}>
               <input
                 type="search"
                 name="q"
@@ -68,7 +104,7 @@ export const SearchQueryAdvancedPage = () => {
               <SearchIcon className={styles.searchIcon} onClick={submitQuery} />
               <Microphone className={styles.microphoneIcon} />
               <Camera className={styles.cameraIcon} />
-            </Form>
+            </Form> */}
 
             <div className={styles.otherLanguages}>
               <span onClick={submitQuery}>Search Now</span> or{" "}
@@ -76,6 +112,14 @@ export const SearchQueryAdvancedPage = () => {
                 {" "}
                 Clear Options
               </span>
+            </div>
+
+            <div className={styles.searchTypeContainer}>
+              {searchTypeOptions.map((searchType, index) => (
+                <div key={index} className={styles.searchType}>
+                  {searchType}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -112,6 +156,6 @@ export const SearchQueryAdvancedPage = () => {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
