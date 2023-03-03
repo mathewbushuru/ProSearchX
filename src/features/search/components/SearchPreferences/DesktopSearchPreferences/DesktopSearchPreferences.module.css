@@ -93,6 +93,7 @@
   border-radius: 10px;
   outline: none;
   align-self: stretch;
+  font-size: 15px;
 }
 .importantWords label {
   margin-left: 6px;

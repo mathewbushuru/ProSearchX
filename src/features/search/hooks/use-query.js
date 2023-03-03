@@ -21,9 +21,14 @@ export const useQuery = () => {
     let searchString = queryString;
 
     //exact words
-    console.log(exactWords);
     if (exactWords.length) {
       searchString += ` "${exactWords}"`;
+    }
+
+    //similar words
+    console.log(similarWords.split(",").join(" OR"));
+    if (similarWords) {
+      searchString += ` ${similarWords.split(",").join(" OR ")}`;
     }
 
     // websites
