@@ -22,20 +22,23 @@ export const useQuery = () => {
 
     for (const website in shownWebsites) {
       if (shownWebsites[website] && website !== "all") {
-        searchString += ` site:${website}.com`;
+        searchString += ` site:${website}.com OR`;
       }
     }
-    console.log(fileFormat);
+    if (shownWebsites.all) {
+      searchString = queryString;
+    }
+
     for (const format in fileFormat) {
-        if (fileFormat[format] && format !== "anyFormat") {
-          searchString += ` filetype:${format}`;
-        }
+      if (fileFormat[format] && format !== "anyFormat") {
+        searchString += ` filetype:${format}`;
       }
+    }
 
     console.log(`search string: ${searchString}`);
     const searchUrl = `https://www.google.com/search?q=${searchString}`;
 
-    if (queryString) {
+    if (searchString) {
       //   window.location.href = searchUrl;
       window.open(searchUrl, "_blank");
     }
