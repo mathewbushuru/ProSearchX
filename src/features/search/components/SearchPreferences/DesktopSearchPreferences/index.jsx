@@ -52,7 +52,7 @@ export const DesktopSearchPreferences = () => {
               shownWebsites.all ? styles.selectedWebsiteOption : ""
             }`}
             onClick={() => dispatch(changeWebsiteAction("all"))}
-            onDoubleClick={submitQuery}
+            // onDoubleClick={submitQuery}
           >
             <GlobalIcon className={styles.websiteOptionIcon} />
           </div>
@@ -63,7 +63,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("reddit"));
             }}
-            onDoubleClick={submitQuery}
+            // onDoubleClick={submitQuery}
           >
             <RedditIcon className={styles.websiteOptionIcon} />
           </div>
@@ -74,7 +74,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("stackOverflow"));
             }}
-            onDoubleClick={submitQuery}
+            // onDoubleClick={submitQuery}
           >
             <StackOverflowIcon className={styles.websiteOptionIcon} />
           </div>
@@ -85,7 +85,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("twitter"));
             }}
-            onDoubleClick={submitQuery}
+            // onDoubleClick={submitQuery}
           >
             <TwitterIcon className={styles.websiteOptionIcon} />
           </div>
