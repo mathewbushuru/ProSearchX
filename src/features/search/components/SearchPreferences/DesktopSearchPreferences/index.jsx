@@ -33,6 +33,12 @@ export const DesktopSearchPreferences = () => {
 
   const [submitQuery] = useQuery();
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      submitQuery();
+    }
+  };
+
   return (
     <div className={styles.searchPreferences}>
       <div className={styles.searchPreferencesSection}>
@@ -56,6 +62,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("reddit"));
             }}
+            onDoubleClick={submitQuery}
           >
             <RedditIcon className={styles.websiteOptionIcon} />
           </div>
@@ -66,6 +73,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("stackOverflow"));
             }}
+            onDoubleClick={submitQuery}
           >
             <StackOverflowIcon className={styles.websiteOptionIcon} />
           </div>
@@ -76,6 +84,7 @@ export const DesktopSearchPreferences = () => {
             onClick={() => {
               dispatch(changeWebsiteAction("twitter"));
             }}
+            onDoubleClick={submitQuery}
           >
             <TwitterIcon className={styles.websiteOptionIcon} />
           </div>
@@ -109,7 +118,11 @@ export const DesktopSearchPreferences = () => {
         <div className={styles.header}>
           <p>Date published</p>
         </div>
-        <Form className={styles.dateOptions} onSubmit={submitQuery}>
+        <Form
+          className={styles.dateOptions}
+          onKeyDown={(e) => handleKeyPress(e)}
+          onSubmit={submitQuery}
+        >
           <div>
             <input
               type="radio"
@@ -190,7 +203,11 @@ export const DesktopSearchPreferences = () => {
           <p>File format</p>
           {/* <MoreIcon className={styles.moreIcon} /> */}
         </div>
-        <Form className={styles.fileOptions} onSubmit={submitQuery}>
+        <Form
+          className={styles.fileOptions}
+          onKeyDown={(e) => handleKeyPress(e)}
+          onSubmit={submitQuery}
+        >
           <div>
             <input
               type="radio"

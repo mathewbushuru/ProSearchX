@@ -6,7 +6,6 @@ export const useQuery = () => {
   const dispatch = useDispatch();
 
   const queryString = useSelector((state) => state.query.queryString);
-  const searchString = useSelector((state) => state.query.searchString);
 
   const submitQuery = () => {
     dispatch(submitQueryAction());

@@ -34,7 +34,6 @@ export const SearchQueryPage = () => {
 
   const dispatch = useDispatch();
   const queryString = useSelector((state) => state.query.queryString);
-  const searchString = useSelector((state) => state.query.searchString);
 
   const [submitQuery] = useQuery();
 
