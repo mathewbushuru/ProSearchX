@@ -25,6 +25,7 @@ export const useQuery = () => {
         searchString += ` site:${website}.com OR`;
       }
     }
+    searchString = searchString.substring(0, searchString.length - 3);
     if (shownWebsites.all) {
       searchString = queryString;
     }
