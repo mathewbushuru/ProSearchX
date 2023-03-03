@@ -1,10 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import { submitQueryAction } from "../stores/querySlice";
+import { useSelector } from "react-redux";
 
 export const useQuery = () => {
-  const dispatch = useDispatch();
-
   const shownWebsites = useSelector((state) => state.ui.shownWebsites);
   const datePublished = useSelector((state) => state.ui.datePublished);
   const fileFormat = useSelector((state) => state.ui.fileFormat);
@@ -13,6 +9,8 @@ export const useQuery = () => {
   const excludeWords = useSelector((state) => state.ui.excludeWords);
 
   const queryString = useSelector((state) => state.query.queryString);
+
+  const newTab = useSelector((state) => state.settings.newTab);
 
   const submitQuery = () => {
     console.log("Submitting query");
@@ -88,8 +86,11 @@ export const useQuery = () => {
     const searchUrl = `https://www.google.com/search?q=${searchString}`;
 
     if (searchString) {
+      if (newTab) {
+        window.open(searchUrl, "_blank");
+      } else {
         window.location.href = searchUrl;
-    //   window.open(searchUrl, "_blank");
+      }
     }
   };
 

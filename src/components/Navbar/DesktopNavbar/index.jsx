@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { toggleSaveOptionsAction } from "features/search/stores/preferencesHistorySlice";
+import { toggleNewTabAction } from "features/search/stores/settingsSlice";
 
 import styles from "./DesktopNavbar.module.css";
 
 export const DesktopNavbar = () => {
-  const saveOptionsFlag = useSelector(
-    (state) => state.preferencesHistory.saveOptions
-  );
   const dispatch = useDispatch();
+
+  const newTab = useSelector((state) => state.settings.newTab);
 
   return (
     <header className={styles.desktopNavbar}>
@@ -25,10 +24,7 @@ export const DesktopNavbar = () => {
           <span className={`${styles.navItem}`}>Images</span>
         </Link>
       </div>
-      <div
-        className={styles.navRight}
-        onClick={() => dispatch(toggleSaveOptionsAction())}
-      >
+      <div className={styles.navRight}>
         <label htmlFor="rememberOptions">
           <span className={`${styles.navItem} ${styles.checkboxLabel}`}>
             Results in new tab
@@ -38,8 +34,8 @@ export const DesktopNavbar = () => {
           type="checkbox"
           name="rememberOptions"
           id="rememberOptions"
-          value={saveOptionsFlag}
-          defaultChecked={saveOptionsFlag}
+          checked={newTab}
+          onChange={() => dispatch(toggleNewTabAction())}
           className={`${styles.navItem} ${styles.checkbox}`}
         />
       </div>
