@@ -20,7 +20,14 @@ export const useQuery = () => {
 
     let searchString = queryString;
 
+    //exact words
+    console.log(exactWords);
+    if (exactWords.length) {
+      searchString += ` "${exactWords}"`;
+    }
+
     // websites
+    let searchStringPreweb = searchString;
     for (const website in shownWebsites) {
       if (shownWebsites[website] && website !== "all") {
         searchString += ` site:${website}.com OR`;
@@ -28,7 +35,7 @@ export const useQuery = () => {
     }
     searchString = searchString.substring(0, searchString.length - 3);
     if (shownWebsites.all) {
-      searchString = queryString;
+      searchString = searchStringPreweb;
     }
 
     // file format
@@ -40,9 +47,6 @@ export const useQuery = () => {
 
     // date range
     const date = new Date();
-    const todayDate = `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()}`;
     let searchDate;
     for (const datePeriod in datePublished) {
       if (datePublished[datePeriod] && datePeriod !== "anytime") {
