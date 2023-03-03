@@ -239,19 +239,6 @@ export const DesktopSearchPreferences = () => {
             <input
               type="radio"
               name="fileOption"
-              id="file_zip"
-              value="zip"
-              checked={fileFormat.zip}
-              onChange={(e) => {
-                dispatch(changeFileAction(e.target.value));
-              }}
-            />
-            <label htmlFor="file_zip">.zip</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              name="fileOption"
               id="file_pptx"
               value="pptx"
               checked={fileFormat.pptx}
@@ -260,6 +247,19 @@ export const DesktopSearchPreferences = () => {
               }}
             />
             <label htmlFor="file_pptx">.pptx</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="fileOption"
+              id="file_zip"
+              value="zip"
+              checked={fileFormat.zip}
+              onChange={(e) => {
+                dispatch(changeFileAction(e.target.value));
+              }}
+            />
+            <label htmlFor="file_zip">.zip</label>
           </div>
           <div>
             <input

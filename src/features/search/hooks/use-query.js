@@ -20,12 +20,17 @@ export const useQuery = () => {
 
     let searchString = queryString;
 
-    console.log(shownWebsites);
     for (const website in shownWebsites) {
       if (shownWebsites[website] && website !== "all") {
         searchString += ` site:${website}.com`;
       }
     }
+    console.log(fileFormat);
+    for (const format in fileFormat) {
+        if (fileFormat[format] && format !== "anyFormat") {
+          searchString += ` filetype:${format}`;
+        }
+      }
 
     console.log(`search string: ${searchString}`);
     const searchUrl = `https://www.google.com/search?q=${searchString}`;
