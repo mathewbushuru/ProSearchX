@@ -57,6 +57,12 @@ export const useQuery = () => {
             date.getMonth() + 1
           }-${date.getDate()}`;
           searchString += ` after:${searchDate}`;
+        } else if (datePeriod === "pastWeek") {
+          date.setDate(date.getDate() - 7);
+          searchDate = `${date.getFullYear()}-${
+            date.getMonth() + 1
+          }-${date.getDate()}`;
+          searchString += ` after:${searchDate}`;
         }
       }
     }
