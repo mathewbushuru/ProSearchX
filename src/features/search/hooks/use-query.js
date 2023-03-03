@@ -88,8 +88,8 @@ export const useQuery = () => {
     const searchUrl = `https://www.google.com/search?q=${searchString}`;
 
     if (searchString) {
-      //   window.location.href = searchUrl;
-      window.open(searchUrl, "_blank");
+        window.location.href = searchUrl;
+    //   window.open(searchUrl, "_blank");
     }
   };
 

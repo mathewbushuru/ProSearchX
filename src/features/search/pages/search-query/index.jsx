@@ -91,12 +91,12 @@ export const SearchQueryPage = () => {
               >
                 Search
               </PrimaryButton>
-              <PrimaryButton
+              {/* <PrimaryButton
                 onClick={submitQuery}
                 className={styles.mobileSearchButton}
               >
                 <Link to="/images">Advanced Search</Link>
-              </PrimaryButton>
+              </PrimaryButton> */}
             </div>
             <div className={styles.searchButtons}>
               <PrimaryButton
@@ -105,9 +105,9 @@ export const SearchQueryPage = () => {
               >
                 Google Search
               </PrimaryButton>
-              <PrimaryButton className={styles.transparentButton}>
+              {/* <PrimaryButton className={styles.transparentButton}>
                 <Link to="/images">Advanced Search</Link>
-              </PrimaryButton>
+              </PrimaryButton> */}
             </div>
           </div>
         </div>

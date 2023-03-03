@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const preferencesHistorySlice = createSlice({
   name: "preferencesHistory",
   initialState: {
-    saveOptions: true,
+    saveOptions: false,
     previousPreferencesHistory: [],
   },
   reducers: {

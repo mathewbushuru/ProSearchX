@@ -27,7 +27,7 @@ export const MobileNavbar = () => {
       >
         <label htmlFor="rememberOptions">
           <span className={`${styles.navItem} ${styles.checkboxLabel}`}>
-            Save Options
+            New tab
           </span>
         </label>
         <input

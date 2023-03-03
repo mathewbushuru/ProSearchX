@@ -31,7 +31,7 @@ export const DesktopNavbar = () => {
       >
         <label htmlFor="rememberOptions">
           <span className={`${styles.navItem} ${styles.checkboxLabel}`}>
-            Remember my options
+            Results in new tab
           </span>
         </label>
         <input
