@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { Form, useSearchParams, useSubmit } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CgSearch as SearchIcon } from "react-icons/cg";
 import { BiMicrophone as MicrophoneIcon } from "react-icons/bi";

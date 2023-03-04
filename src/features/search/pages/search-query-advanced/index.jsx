@@ -1,11 +1,7 @@
 import { useRouteError, useNavigate, Form, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { CgSearch as SearchIcon } from "react-icons/cg";
-import { BiMicrophone as Microphone } from "react-icons/bi";
-import { BsCamera as Camera } from "react-icons/bs";
 import { RxHamburgerMenu as Hamburger } from "react-icons/rx";
 
-import { MainLayout } from "layouts";
 import { PrimaryButton } from "components/UI";
 import {
   MobileSearchPreferences,
@@ -16,7 +12,6 @@ import { SearchForm } from "features/search/components";
 import { useWindowDimensions } from "hooks/ui_hooks";
 import { useQuery } from "features/search/hooks";
 
-import { modifyQueryAction } from "features/search/stores/querySlice";
 import { resetOptionsAction } from "features/search/stores/uiSlice";
 import { toggleNewTabAction } from "features/search/stores/settingsSlice";
 
@@ -47,7 +42,6 @@ export const SearchQueryAdvancedPage = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const queryString = useSelector((state) => state.query.queryString);
   const newTab = useSelector((state) => state.settings.newTab);
 
   const [submitQuery] = useQuery();
@@ -55,7 +49,7 @@ export const SearchQueryAdvancedPage = () => {
     if (width > 501) {
       navigate("/");
     }
-  }, [width]);
+  }, [width, navigate]);
 
   return (
     <>

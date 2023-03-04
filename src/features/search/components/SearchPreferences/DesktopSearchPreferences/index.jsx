@@ -1,7 +1,5 @@
-import { Link, Form } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
 import { FaGlobeAmericas as GlobalIcon } from "react-icons/fa";
 import { FaRedditAlien as RedditIcon } from "react-icons/fa";
 import { FaStackOverflow as StackOverflowIcon } from "react-icons/fa";

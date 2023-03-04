@@ -1,4 +1,4 @@
-import { Link, Form } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineMoreVert as MoreIcon } from "react-icons/md";
 import { FaGlobeAmericas as GlobalIcon } from "react-icons/fa";
@@ -89,10 +89,7 @@ export const MobileSearchPreferences = () => {
           <p>Date published</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form
-          className={styles.dateOptions}
-          onSubmit={submitQuery}
-        >
+        <Form className={styles.dateOptions} onSubmit={submitQuery}>
           <div>
             <input
               type="radio"
@@ -153,10 +150,7 @@ export const MobileSearchPreferences = () => {
           <p>File format</p>
           <MoreIcon className={styles.moreIcon} />
         </div>
-        <Form
-          className={styles.fileOptions}
-          onSubmit={submitQuery}
-        >
+        <Form className={styles.fileOptions} onSubmit={submitQuery}>
           <div>
             <input
               type="radio"
